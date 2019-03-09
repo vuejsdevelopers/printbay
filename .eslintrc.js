@@ -1,14 +1,51 @@
 module.exports = {
   root: true,
   env: {
-    node: true
-  },
-  extends: ["plugin:vue/essential", "@vue/prettier"],
-  rules: {
-    "no-console": process.env.NODE_ENV === "production" ? "error" : "off",
-    "no-debugger": process.env.NODE_ENV === "production" ? "error" : "off"
+    es6: true
   },
   parserOptions: {
-    parser: "babel-eslint"
+    ecmaVersion: 2017
+  },
+  extends: [
+    "prettier",
+    "standard",
+    "prettier/standard"
+  ],
+  rules: {
+    indent: [
+      "warn",
+      2
+    ],
+    quotes: [
+      "warn",
+      "double"
+    ],
+    semi: [
+      "error",
+      "always"
+    ],
+    "no-var": [
+      "error"
+    ],
+    "no-console": process.env.NODE_ENV === "production" ? "error" : "off",
+    "no-debugger": process.env.NODE_ENV === "production" ? "error" : "off",
+    "no-unused-vars": [
+      "off"
+    ],
+    "no-mixed-spaces-and-tabs": [
+      "warn"
+    ],
+    "object-curly-spacing": [
+      "warn",
+      "always"
+    ],
+    "prefer-const": [
+      "warn"
+    ],
+    "max-len": [
+      "warn",
+      { code: 80 }
+    ],
+    "prefer-promise-reject-errors": 0
   }
 };
