@@ -1,6 +1,6 @@
 # PrintBay
 
-Code for the case-study app PrintBay from the course [Enterprise Vue](https://vuejsdevelopers.com/courses/enterprise-vue)
+Code for the case-study app PrintBay from the course [Enterprise Vue](https://vuejsdevelopers.com/courses/enterprise-vue).
 
 ## Installation
 
