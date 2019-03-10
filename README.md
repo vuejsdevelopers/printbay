@@ -1,39 +1,11 @@
-# printbay
+# PrintBay
 
-## Project setup
-```
-npm install
-```
+Code for the case-study app PrintBay from the course [Enterprise Vue](https://vuejsdevelopers.com/courses/enterprise-vue)
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+## Installation
 
-### Compiles and minifies for production
-```
-npm run build
-```
+It's recommended that you use this in conjunction with the [PrintBay Vagrant](https://bitbucket.org/vuejsdevelopers/printbay-vagrant) environment.
 
-### Run your tests
-```
-npm run test
-```
+## License
 
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Run your end-to-end tests
-```
-npm run test:e2e
-```
-
-### Run your unit tests
-```
-npm run test:unit
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+The code in this repo is only for students of the [Enterprise Vue](https://vuejsdevelopers.com/courses/enterprise-vue) course. Don't share it, put it on GitHub etc.
