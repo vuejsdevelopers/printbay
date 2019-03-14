@@ -9,5 +9,8 @@ module.exports = {
       .end();
     config.resolve.alias
       .set("@", path.join(__dirname, "./client"));
+  },
+  devServer: {
+    proxy: "http://localhost:8070"
   }
 };
