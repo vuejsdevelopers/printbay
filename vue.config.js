@@ -11,6 +11,7 @@ module.exports = {
       .set("@", path.join(__dirname, "./client"));
   },
   devServer: {
-    proxy: "http://localhost:8070"
+    port: process.env.PORT,
+    proxy: `http://localhost:${process.env.SERVER_PORT}`
   }
 };
