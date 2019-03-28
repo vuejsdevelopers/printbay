@@ -3,5 +3,6 @@ exports.list = (req, res) => {
 };
 
 exports.create = (req, res) => {
+  console.log(req.body);
   res.send({ message: "Received POST "});
 };

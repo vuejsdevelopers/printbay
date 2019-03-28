@@ -12,6 +12,7 @@
     "test:unit": "vue-cli-service test:unit"
   },
   "dependencies": {
+    "body-parser": "^1.18.3",
     "express": "~4.16.4",
     "mongoose": "^5.4.20",
     "validator": "^10.11.0",
