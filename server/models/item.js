@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 const ItemSchema = mongoose.Schema({
   title: {
     type: String,
-    require: true,
+    required: true,
     trim: true
   },
   artist: {
