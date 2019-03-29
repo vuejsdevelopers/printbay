@@ -13,7 +13,7 @@ const validator = require("validator");
 const Item = mongoose.model("Item", {
   title: {
     type: String,
-    require: true,
+    required: true,
     trim: true
   },
   artist: {
