@@ -7,4 +7,8 @@ router
   .get(ItemController.list)
   .post(ItemController.create);
 
+router
+  .route("/:id")
+  .get(ItemController.read);
+
 module.exports = router;
