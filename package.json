@@ -10,7 +10,7 @@
     "lint": "vue-cli-service lint client server tests",
     "test:e2e": "vue-cli-service test:e2e",
     "test:unit:client": "vue-cli-service test:unit",
-    "test:unit:server": "mocha tests/unit/server"
+    "test:unit:server": "cross-env NODE_ENV=test mocha tests/unit/server --exit"
   },
   "dependencies": {
     "body-parser": "^1.18.3",
@@ -33,6 +33,7 @@
     "babel-eslint": "~10.0.1",
     "babel-jest": "~24.3.1",
     "concurrently": "^4.1.0",
+    "cross-env": "^5.2.0",
     "eslint": "~5.15.1",
     "eslint-config-standard": "~12.0.0",
     "eslint-plugin-html": "~5.0.3",

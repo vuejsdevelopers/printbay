@@ -14,6 +14,10 @@ app.use(bodyParser.json());
 app.use("/items", require("./routes/items"));
 
 const port = process.env.PORT;
-app.listen(port, () => {
-  console.log(`Listening on port ${port}`);
-});
+if (process.env.NODE_ENV !== "test") {
+  app.listen(port, () => {
+    console.log(`Listening on port ${port}`);
+  });
+}
+
+module.exports = app;
