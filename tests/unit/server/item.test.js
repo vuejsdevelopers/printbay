@@ -3,6 +3,7 @@ const app = require("../../../server");
 const request = require("supertest");
 const Item = require("../../../server/models/Item");
 const { seedItems, populateItems } = require("./seed");
+const { ObjectId } = require("mongodb");
 
 beforeEach(populateItems);
 
@@ -17,6 +18,14 @@ describe("POST /items", () => {
     const items = await Item.find();
     expect(items.length).toBe(seedItems.length + 1);
     expect(items[seedItems.length].title).toBe(body.title);
+  });
+  it("should not create a new item with invalid data", async () => {
+    await request(app)
+      .post("/items")
+      .send({})
+      .expect(400);
+    const items = await Item.find();
+    expect(items.length).toBe(seedItems.length);
   });
 });
 
@@ -35,5 +44,15 @@ describe("GET /items/:id", () => {
       .get(`/items/${seedItems[0]._id.toHexString()}`)
       .expect(200);
     expect(res.body.item.title).toBe(seedItems[0].title);
+  });
+  it("should return 404 if item not found", async () => {
+    await request(app)
+      .get(`/items/${new ObjectId().toHexString()}`)
+      .expect(404);
+  });
+  it("should return 404 for invalid ID", async () => {
+    await request(app)
+      .get("/items/123")
+      .expect(404);
   });
 });
