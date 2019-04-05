@@ -5,7 +5,8 @@ require("dotenv").config({
   path: path.join(__dirname, "..", ".env.server")
 });
 const mongoose = require("mongoose");
-mongoose.connect("mongodb://127.0.0.1:27017/printbay", {
+const dbName = process.env.NODE_ENV === "test" ? "printbay_test" : "printbay";
+mongoose.connect(`mongodb://127.0.0.1:27017/${dbName}`, {
   useNewUrlParser: true, useCreateIndex: true
 });
 const bodyParser = require("body-parser");
