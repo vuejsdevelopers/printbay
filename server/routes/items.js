@@ -5,6 +5,6 @@ const ItemController = require("../controllers/items");
 router
   .route("/")
   .get(ItemController.list)
-  .post(ItemController.create)
+  .post(ItemController.create);
 
 module.exports = router;
