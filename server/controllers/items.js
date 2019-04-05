@@ -1,7 +1,12 @@
 const Item = require("../models/Item");
 
-exports.list = (req, res) => {
-  res.send({ message: "It works!" });
+exports.list = async (req, res) => {
+  try {
+    const items = await Item.find();
+    res.send({ items });
+  } catch (err) {
+    res.status(500).send();
+  }
 };
 
 exports.create = async (req, res) => {
