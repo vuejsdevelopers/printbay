@@ -8,6 +8,7 @@
     "serve": "concurrently \"npm:serve:*\" -k",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint client server tests",
+    "seed": "node ./scripts/run_seed",
     "test:e2e": "vue-cli-service test:e2e",
     "test:unit:client": "vue-cli-service test:unit",
     "test:unit:server": "cross-env NODE_ENV=test mocha tests/unit/server --exit"
@@ -15,6 +16,7 @@
   "dependencies": {
     "body-parser": "^1.18.3",
     "express": "~4.16.4",
+    "faker": "^4.1.0",
     "mongoose": "^5.4.20",
     "validator": "^10.11.0",
     "vue": "~2.6.8",
