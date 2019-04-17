@@ -5,19 +5,21 @@ require("dotenv").config({
   path: path.join(__dirname, "..", ".env.server")
 });
 const mongoose = require("mongoose");
-const dbName = process.env.NODE_ENV === "test" ? "printbay_test" : "printbay";
-mongoose.connect(`mongodb://127.0.0.1:27017/${dbName}`, {
+const { PORT, NODE_ENV, MONGO_DB_URI, DB_NAME, DB_NAME_TEST } = process.env;
+
+const dbName = NODE_ENV === "test" ? DB_NAME_TEST : DB_NAME;
+mongoose.connect(`${MONGO_DB_URI}/${dbName}`, {
   useNewUrlParser: true, useCreateIndex: true
 });
+
 const bodyParser = require("body-parser");
 app.use(bodyParser.json());
 
 app.use("/items", require("./routes/items"));
 
-const port = process.env.PORT;
-if (process.env.NODE_ENV !== "test") {
-  app.listen(port, () => {
-    console.log(`Listening on port ${port}`);
+if (NODE_ENV !== "test") {
+  app.listen(PORT, () => {
+    console.log(`Listening on port ${PORT}`);
   });
 }
 
