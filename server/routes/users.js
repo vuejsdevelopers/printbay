@@ -9,4 +9,8 @@ router
   .all(authenticate)
   .get(UsersController.read);
 
+router
+  .route("/login")
+  .post(UsersController.login);
+
 module.exports = router;
