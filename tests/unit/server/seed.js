@@ -27,7 +27,8 @@ const seedUsers = [
     name: faker.name.firstName(),
     email: faker.internet.email(),
     password: faker.internet.password(),
-    token: jwt.sign({ _id: userOneId }, process.env.JWT_SECRET).toString()
+    token: jwt.sign({ _id: userOneId }, process.env.JWT_SECRET).toString(),
+    role: "admin"
   },
   {
     _id: userTwoId,

@@ -2,7 +2,7 @@ const expect = require("expect");
 const app = require("../../../server");
 const request = require("supertest");
 const Item = require("../../../server/models/Item");
-const { seedItems, populateItems } = require("./seed");
+const { seedItems, populateItems, seedUsers } = require("./seed");
 const { ObjectId } = require("mongodb");
 
 beforeEach(populateItems);
@@ -12,6 +12,7 @@ describe("POST /items", () => {
     const body = { title: "Test title" };
     const res = await request(app)
       .post("/items")
+      .set("authorization", `Bearer ${seedUsers[0].token}`)
       .send(body)
       .expect(200);
     expect(res.body.item.title).toBe(body.title);
@@ -22,10 +23,26 @@ describe("POST /items", () => {
   it("should not create a new item with invalid data", async () => {
     await request(app)
       .post("/items")
+      .set("authorization", `Bearer ${seedUsers[0].token}`)
       .send({})
       .expect(400);
     const items = await Item.find();
     expect(items.length).toBe(seedItems.length);
+  });
+  it("shouldn't create an item without authorization header", async () => {
+    await request(app)
+      .post("/items")
+      .expect(401);
+  });
+  it("shouldn't create an item unless admin", async () => {
+    const res = await request(app)
+      .post("/users/login")
+      .send(seedUsers[1])
+      .expect(200);
+    await request(app)
+      .post("/items")
+      .set("authorization", res.headers.authorization)
+      .expect(403);
   });
 });
 
