@@ -39,6 +39,7 @@ describe("POST /users", () => {
     expect(res.body.user.email).toBe(user.email);
     const doc = await User.findOne({ email: user.email });
     expect(doc).toBeTruthy();
+    expect(doc.password).not.toBe(user.password);
   });
   it("should not create an user with invalid data", async () => {
     await request(app)
