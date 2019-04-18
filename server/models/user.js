@@ -28,6 +28,10 @@ const UserSchema = mongoose.Schema({
   token: {
     type: String
   }
+}, {
+  toJSON: {
+    transform: (doc, { _id, name, email }) => ({ _id, name, email })
+  }
 });
 
 UserSchema.methods.generateAuthToken = async function () {
