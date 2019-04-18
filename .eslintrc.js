@@ -46,6 +46,7 @@ module.exports = {
       "warn",
       { code: 80 }
     ],
-    "prefer-promise-reject-errors": 0
+    "prefer-promise-reject-errors": 0,
+    "no-throw-literal": 0
   }
 };
