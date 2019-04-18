@@ -16,6 +16,7 @@ const bodyParser = require("body-parser");
 app.use(bodyParser.json());
 
 app.use("/items", require("./routes/items"));
+app.use("/users", require("./routes/users"));
 
 if (NODE_ENV !== "test") {
   app.listen(PORT, () => {
