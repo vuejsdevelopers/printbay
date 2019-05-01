@@ -20,10 +20,10 @@
             Register
             <v-icon>add_circle_outline</v-icon>
           </v-tab>
-          <v-tab-item id="/login">
+          <v-tab-item value="/login">
             <LoginForm />
           </v-tab-item>
-          <v-tab-item id="/register">
+          <v-tab-item value="/register">
             <RegisterForm />
           </v-tab-item>
         </v-tabs>
@@ -47,3 +47,8 @@ export default {
   })
 };
 </script>
+<style lang="stylus">
+  .v-window
+    overflow: hidden;
+    position: relative;
+</style>

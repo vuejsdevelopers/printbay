@@ -36,7 +36,7 @@ export default {
       this.$refs.password.validate();
       this.$nextTick(() => {
         if (!this.emailErrorState && !this.passwordErrorState) {
-
+          // Login
         }
       });
     }

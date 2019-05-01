@@ -66,20 +66,7 @@ import InputArtist from "@components/InputArtist";
 import InputYear from "@components/InputYear";
 import InputImage from "@components/InputImage";
 import InputPrice from "@components/InputPrice";
-import Item from "@/store/models/Item";
-const item = ["title", "artist", "year", "image", "price"].map(prop => ({
-  [prop]: {
-    get () {
-      return Item.find(this.$route.params.id)[prop];
-    },
-    set (val) {
-      Item.update({
-        where: this.$route.params.id,
-        data: { [prop]: val }
-      });
-    }
-  }
-}));
+
 export default {
   name: "ItemForm",
   components: {
@@ -107,38 +94,12 @@ export default {
     priceAPIErrors: [],
     priceErrorState: false
   }),
-  computed: {
-    ...item
-  },
-  created () {
-    if (this.id) {
-      if (!Item.find(this.$route.params.id)) {
-        Item.$get({
-          params: {
-            id: this.$route.params.id
-          }
-        });
-      }
-    } else {
-      Item.create({ id: null });
-    }
-  },
   methods: {
     inputErrorStateChange (type, state) {
       this[`${type}ErrorState`] = state;
     },
     sendData () {
-      const id = this.$route.params.id;
-      const data = Item.find(id);
-      if (id) {
-        return Item.$update({
-          params: { id },
-          data
-        });
-      } else {
-        Item.delete(null);
-        return Item.$create({ data });
-      }
+      //
     },
     successCallback (res) {
       if (!this.$route.params.id) {

@@ -26,17 +26,11 @@
 <script>
 import ProfileItem from "@components/ProfileItemSummary";
 import { ROUTE_NAME_INTERNAL_SERVER_ERROR } from "@/constants";
-import Item from "@/store/models/Item";
 export default {
   name: "Profile",
   components: { ProfileItem },
   computed: {
-    items: () => Item.all()
-  },
-  created () {
-    if (Item.all().length < 10) {
-      Item.$fetch();
-    }
+    items: () => []
   },
   methods: {
     del (id) {

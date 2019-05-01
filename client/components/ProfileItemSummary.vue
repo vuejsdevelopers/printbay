@@ -63,7 +63,6 @@ import {
   EVENT_DELETE,
   ROUTE_NAME_INTERNAL_SERVER_ERROR
 } from "@/constants";
-import Item from "@/store/models/Item";
 export default {
   name: "ProfileItemSummary",
   props: {
@@ -71,7 +70,7 @@ export default {
   },
   methods: {
     del () {
-      Item.delete(this.item.id);
+      //
     }
   }
 };

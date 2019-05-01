@@ -42,7 +42,6 @@
 <script>
 import CartItem from "@components/CartItem";
 import CartSummary from "@components/CartSummary";
-import Item from "@/store/models/Item";
 import { ROUTE_NAME_LOGIN, ROUTE_NAME_HOME } from "@/constants";
 export default {
   name: "Cart",
@@ -56,7 +55,7 @@ export default {
   }),
   computed: {
     cart () {
-      return Item.query().where(record => record.cart > 0).get();
+      return [];
     }
   }
 };
