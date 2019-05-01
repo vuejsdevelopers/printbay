@@ -7,7 +7,7 @@
     "serve:server": "nodemon server -L",
     "serve": "concurrently \"npm:serve:*\" -k",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint client scritps server tests",
+    "lint": "vue-cli-service lint client scripts server tests",
     "seed": "node ./scripts/run_seed",
     "test:e2e": "vue-cli-service test:e2e",
     "test:unit:client": "vue-cli-service test:unit",
