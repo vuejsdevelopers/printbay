@@ -1,0 +1,49 @@
+<template>
+  <v-layout>
+    <v-flex
+      :class="{ 'my-5': $vuetify.breakpoint.smAndUp }"
+      sm6
+      offset-sm3
+    >
+      <v-card>
+        <v-tabs
+          icons-and-text
+          centered
+          color="grey lighten-5"
+        >
+          <v-tabs-slider color="pink darken-1" />
+          <v-tab :to="{ name: ROUTE_NAME_LOGIN }">
+            Login
+            <v-icon>arrow_forward</v-icon>
+          </v-tab>
+          <v-tab :to="{ name: ROUTE_NAME_REGISTER }">
+            Register
+            <v-icon>add_circle_outline</v-icon>
+          </v-tab>
+          <v-tab-item id="/login">
+            <LoginForm />
+          </v-tab-item>
+          <v-tab-item id="/register">
+            <RegisterForm />
+          </v-tab-item>
+        </v-tabs>
+      </v-card>
+    </v-flex>
+  </v-layout>
+</template>
+<script>
+import LoginForm from "@components/LoginForm";
+import RegisterForm from "@components/RegisterForm";
+import { ROUTE_NAME_LOGIN, ROUTE_NAME_REGISTER } from "@/constants";
+export default {
+  name: "Auth",
+  components: {
+    LoginForm,
+    RegisterForm
+  },
+  data: () => ({
+    ROUTE_NAME_LOGIN,
+    ROUTE_NAME_REGISTER
+  })
+};
+</script>

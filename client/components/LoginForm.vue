@@ -1,0 +1,45 @@
+<template>
+  <form
+    class="mx-5 my-4"
+    name="login"
+  >
+    <InputEmail
+      ref="email"
+      v-model="email"
+      :external-errors="emailAPIErrors"
+      @error="inputErrorStateChange"
+    />
+    <InputPassword
+      ref="password"
+      v-model="password"
+      :external-errors="passwordAPIErrors"
+      @error="inputErrorStateChange"
+    />
+    <v-btn
+      name="submit"
+      color="blue-grey darken-4 white--text"
+      class="elevation-0 mx-0"
+      @click="submit"
+    >
+      Submit
+    </v-btn>
+  </form>
+</template>
+<script>
+import AuthFormMixin from "@/mixins/AuthFormMixin";
+export default {
+  name: "LoginForm",
+  mixins: [AuthFormMixin],
+  methods: {
+    submit () {
+      this.$refs.email.validate();
+      this.$refs.password.validate();
+      this.$nextTick(() => {
+        if (!this.emailErrorState && !this.passwordErrorState) {
+
+        }
+      });
+    }
+  }
+};
+</script>

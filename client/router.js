@@ -1,26 +1,78 @@
-import Vue from "vue";
 import Router from "vue-router";
-import Home from "./views/Home.vue";
-
-Vue.use(Router);
+import {
+  ROUTE_NAME_CART,
+  ROUTE_NAME_HOME,
+  ROUTE_NAME_ITEM,
+  ROUTE_NAME_LOGIN,
+  ROUTE_NAME_REGISTER,
+  ROUTE_NAME_SELL,
+  ROUTE_NAME_FORBIDDEN,
+  ROUTE_NAME_NOT_FOUND,
+  ROUTE_NAME_INTERNAL_SERVER_ERROR,
+  ROUTE_NAME_PROFILE,
+  ROUTE_NAME_EDIT
+} from "@/constants";
 
 export default new Router({
   mode: "history",
-  base: process.env.BASE_URL,
+  scrollBehavior () {
+    return { x: 0, y: 0 };
+  },
   routes: [
     {
       path: "/",
-      name: "home",
-      component: Home
+      name: ROUTE_NAME_HOME,
+      component: () => import("@views/Home")
     },
     {
-      path: "/about",
-      name: "about",
-      // route level code-splitting
-      // this generates a separate chunk (about.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: () =>
-        import(/* webpackChunkName: "about" */ "./views/About.vue")
+      path: "/items/:id",
+      name: ROUTE_NAME_ITEM,
+      component: () => import("@views/Item")
+    },
+    {
+      path: "/cart",
+      name: ROUTE_NAME_CART,
+      component: () => import("@views/Cart")
+    },
+    {
+      path: "/login",
+      name: ROUTE_NAME_LOGIN,
+      component: () => import("@views/Auth")
+    },
+    {
+      path: "/register",
+      name: ROUTE_NAME_REGISTER,
+      component: () => import("@views/Auth")
+    },
+    {
+      path: "/sell",
+      name: ROUTE_NAME_SELL,
+      component: () => import("@views/Sell")
+    },
+    {
+      path: "/profile",
+      name: ROUTE_NAME_PROFILE,
+      component: () => import("@views/Profile")
+    },
+    {
+      path: "/403",
+      name: ROUTE_NAME_FORBIDDEN,
+      component: () => import("@views/Forbidden")
+    },
+    {
+      path: "/404",
+      name: ROUTE_NAME_NOT_FOUND,
+      component: () => import("@views/NotFound")
+    },
+    {
+      path: "/500",
+      name: ROUTE_NAME_INTERNAL_SERVER_ERROR,
+      component: () => import("@views/InternalServerError")
+    },
+    {
+      path: "/items/:id/edit",
+      name: ROUTE_NAME_EDIT,
+      component: () => import("@views/Sell")
     }
   ]
 });

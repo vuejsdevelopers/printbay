@@ -44,7 +44,7 @@ module.exports = {
     ],
     "max-len": [
       "warn",
-      { code: 80 }
+      { code: 120 }
     ],
     "prefer-promise-reject-errors": 0,
     "no-throw-literal": 0
