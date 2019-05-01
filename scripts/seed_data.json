@@ -1,0 +1,72 @@
+[
+  {
+    "title": "Self-Portrait",
+    "artist": "Vincent van Gogh",
+    "year": 1889,
+    "image": "https://images.nga.gov/?service=asset&action=show_preview&asset=149207",
+    "price": 29.95
+  },
+  {
+    "title": "Ginevra de' Benci",
+    "artist": "Leonardo da Vinci",
+    "year": 1478,
+    "image": "https://images.nga.gov/?service=asset&action=show_preview&asset=149947",
+    "price": 24.95
+  },
+  {
+    "title": "Bazille and Camille",
+    "artist": "Claude Monet",
+    "year": 1865,
+    "image": "https://images.nga.gov/?service=asset&action=show_preview&asset=148850",
+    "price": 24.95
+  },
+  {
+    "title": "Self-Portrait",
+    "artist": "Rembrandt van Rijn",
+    "year": 1659,
+    "image": "https://images.nga.gov/?service=asset&action=show_preview&asset=149206",
+    "price": 24.95
+  },
+  {
+    "title": "Self-Portrait",
+    "artist": "Paul Gauguin",
+    "year": 1889,
+    "image": "https://images.nga.gov/?service=asset&action=show_preview&asset=149272",
+    "price": 29.95
+  },
+  {
+    "title": "The Feast of the Gods",
+    "artist": "Giovanni Bellini and Titian",
+    "year": 1529,
+    "image": "https://images.nga.gov/?service=asset&action=show_preview&asset=149855",
+    "price": 39.95
+  },
+  {
+    "title": "Oarsmen at Chatou",
+    "artist": "Auguste Renoir",
+    "year": 1879,
+    "image": "https://images.nga.gov/?service=asset&action=show_preview&asset=149271",
+    "price": 39.95
+  },
+  {
+    "title": "Wapping",
+    "artist": "James McNeill Whistler",
+    "year": 1864,
+    "image": "https://images.nga.gov/?service=asset&action=show_preview&asset=149505",
+    "price": 29.95
+  },
+  {
+    "title": "Fruit, Jug, and a Glass",
+    "artist": "Jean Siméon Chardin",
+    "year": 1728,
+    "image": "https://images.nga.gov/?service=asset&action=show_preview&asset=149652",
+    "price": 32.95
+  },
+  {
+    "title": "Procession in the Courtyard of the Ducal Palace, Venice",
+    "artist": "Antonio Joli",
+    "year": 1742,
+    "image": "https://images.nga.gov/?service=asset&action=show_preview&asset=149387",
+    "price": 39.95
+  }
+]

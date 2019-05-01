@@ -4,6 +4,6 @@ module.exports = function (req, res, next) {
   } else {
     return res
       .status(403)
-      .send({ message: "Only admin users can take this action."});
+      .send({ message: "Only admin users can take this action." });
   }
 };

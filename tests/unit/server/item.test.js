@@ -15,7 +15,7 @@ describe("POST /items", () => {
       .set("authorization", `Bearer ${seedUsers[0].token}`)
       .send(body)
       .expect(200);
-    expect(res.body.item.title).toBe(body.title);
+    expect(res.body.title).toBe(body.title);
     const items = await Item.find();
     expect(items.length).toBe(seedItems.length + 1);
     expect(items[seedItems.length].title).toBe(body.title);
@@ -35,13 +35,9 @@ describe("POST /items", () => {
       .expect(401);
   });
   it("shouldn't create an item unless admin", async () => {
-    const res = await request(app)
-      .post("/users/login")
-      .send(seedUsers[1])
-      .expect(200);
     await request(app)
       .post("/items")
-      .set("authorization", res.headers.authorization)
+      .set("authorization", `Bearer ${seedUsers[2].token}`)
       .expect(403);
   });
 });
@@ -51,7 +47,7 @@ describe("GET /items", () => {
     const res = await request(app)
       .get("/items")
       .expect(200);
-    expect(res.body.items.length).toBe(seedItems.length);
+    expect(res.body.length).toBe(seedItems.length);
   });
 });
 
@@ -60,7 +56,7 @@ describe("GET /items/:id", () => {
     const res = await request(app)
       .get(`/items/${seedItems[0]._id.toHexString()}`)
       .expect(200);
-    expect(res.body.item.title).toBe(seedItems[0].title);
+    expect(res.body.title).toBe(seedItems[0].title);
   });
   it("should return 404 if item not found", async () => {
     await request(app)
@@ -70,6 +66,80 @@ describe("GET /items/:id", () => {
   it("should return 404 for invalid ID", async () => {
     await request(app)
       .get("/items/123")
+      .expect(404);
+  });
+});
+
+describe("DELETE /items/:id", () => {
+  const hexId = seedItems[1]._id.toHexString();
+  it("shouldn't delete item without authorization header", async () => {
+    await request(app)
+      .delete(`/items/${hexId}`)
+      .expect(401);
+  });
+  it("shouldn't delete item if user is not admin", async () => {
+    await request(app)
+      .delete(`/items/${hexId}`)
+      .set("authorization", `Bearer ${seedUsers[2].token}`)
+      .expect(403);
+  });
+  it("should delete an item", async () => {
+    const res = await request(app)
+      .delete(`/items/${hexId}`)
+      .set("authorization", `Bearer ${seedUsers[0].token}`)
+      .expect(200);
+    expect(res.body.id).toBe(hexId);
+    const item = await Item.findById(hexId);
+    expect(item).toBeNull();
+  });
+  it("should return 404 if item not found", async () => {
+    await request(app)
+      .delete(`/items/${new ObjectId().toHexString()}`)
+      .set("authorization", `Bearer ${seedUsers[0].token}`)
+      .expect(404);
+  });
+  it("should return 404 if object ID is invalid", async () => {
+    await request(app)
+      .delete("/items/123")
+      .set("authorization", `Bearer ${seedUsers[0].token}`)
+      .expect(404);
+  });
+});
+
+describe("PATCH /items/:id", () => {
+  const hexId = seedItems[1]._id.toHexString();
+  it("shouldn't update item without authorization header", async () => {
+    await request(app)
+      .patch(`/items/${hexId}`)
+      .expect(401);
+  });
+  it("shouldn't update item if user is not admin", async () => {
+    await request(app)
+      .delete(`/items/${hexId}`)
+      .set("authorization", `Bearer ${seedUsers[2].token}`)
+      .expect(403);
+  });
+  it("should update item", async () => {
+    const title = "Updated title";
+    const res = await request(app)
+      .patch(`/items/${hexId}`)
+      .set("authorization", `Bearer ${seedUsers[0].token}`)
+      .send({ title })
+      .expect(200);
+    expect(res.body.title).toBe(title);
+    const item = await Item.findById(hexId);
+    expect(item.title).toBe(title);
+  });
+  it("should return 404 if item not found", async () => {
+    await request(app)
+      .patch(`/items/${new ObjectId().toHexString()}`)
+      .set("authorization", `Bearer ${seedUsers[0].token}`)
+      .expect(404);
+  });
+  it("should return 404 if object ID is invalid", async () => {
+    await request(app)
+      .patch("/items/123")
+      .set("authorization", `Bearer ${seedUsers[0].token}`)
       .expect(404);
   });
 });

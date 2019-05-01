@@ -36,7 +36,7 @@ const UserSchema = mongoose.Schema({
   }
 }, {
   toJSON: {
-    transform: (doc, { _id, name, email, role }) => ({ _id, name, email, role })
+    transform: (doc, { _id, name, email, role }) => ({ id: _id, name, email, role })
   }
 });
 
@@ -112,5 +112,11 @@ UserSchema.pre("save", async function (next) {
     next();
   }
 });
+
+UserSchema.methods.removeToken = function (token) {
+  const user = this;
+  user.token = null;
+  return user.save();
+};
 
 module.exports = mongoose.model("User", UserSchema);

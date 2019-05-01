@@ -1,4 +1,4 @@
-const Users = require("../models/User");
+const User = require("../models/User");
 
 module.exports = async (req, res, next) => {
   let token;
@@ -8,7 +8,7 @@ module.exports = async (req, res, next) => {
     return res.status(401).send({ message: "Authorization token invalid." });
   }
   try {
-    req.user = await Users.findByToken(token);
+    req.user = await User.findByToken(token);
     req.token = token;
     next();
   } catch (err) {

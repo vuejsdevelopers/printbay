@@ -20,6 +20,11 @@ const ItemSchema = mongoose.Schema({
   price: {
     type: Number
   }
+}, {
+  toJSON: {
+    transform: (doc, { _id, title, artist, image, year, price }) =>
+      ({ id: _id, title, artist, image, year, price })
+  }
 });
 
 module.exports = mongoose.model("Item", ItemSchema);

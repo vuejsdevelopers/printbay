@@ -20,6 +20,7 @@ const seedItems = [
 
 const userOneId = new ObjectId();
 const userTwoId = new ObjectId();
+const userThreeId = new ObjectId();
 
 const seedUsers = [
   {
@@ -35,6 +36,13 @@ const seedUsers = [
     name: faker.name.firstName(),
     email: faker.internet.email(),
     password: faker.internet.password()
+  },
+  {
+    _id: userThreeId,
+    name: faker.name.firstName(),
+    email: faker.internet.email(),
+    password: faker.internet.password(),
+    token: jwt.sign({ _id: userThreeId }, process.env.JWT_SECRET).toString()
   }
 ];
 
@@ -47,6 +55,7 @@ const populateUsers = async () => {
   await User.deleteMany();
   await new User(seedUsers[0]).save();
   await new User(seedUsers[1]).save();
+  await new User(seedUsers[2]).save();
 };
 
 module.exports = { seedItems, populateItems, seedUsers, populateUsers };
