@@ -30,7 +30,7 @@ export default {
   filters: { currency },
   computed: {
     cartTotal () {
-      return this.$store.getters.item[`entities/items/${CART_TOTAL}`];
+      return 0;
     }
   }
 };
