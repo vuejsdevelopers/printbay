@@ -30,7 +30,6 @@
 </template>
 <script>
 import ItemSummary from "@components/ItemSummary";
-import { ROUTE_NAME_INTERNAL_SERVER_ERROR } from "@/constants";
 export default {
   name: "Home",
   components: {

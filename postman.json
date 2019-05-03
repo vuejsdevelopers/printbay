@@ -1,0 +1,321 @@
+{
+	"info": {
+		"_postman_id": "ffe766c3-5b1c-4753-b177-8e323afca7d1",
+		"name": "PrintBay",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GET /items",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{url}}/items",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"items"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST /items",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "95d5cc06-00a6-4e26-a258-18d7bb526f08",
+						"exec": [
+							"var body = JSON.parse(responseBody);",
+							"postman.setEnvironmentVariable(\"itemId\", body.id);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "authorization",
+						"value": "Bearer {{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"title\": \"From Postman\"\n}"
+				},
+				"url": {
+					"raw": "{{url}}/items",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"items"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET /items/:id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{url}}/items/{{itemId}}",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"items",
+						"{{itemId}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST /users",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "22517a8c-8f7b-4b21-834f-d742001af76a",
+						"exec": [
+							"var token = postman.getResponseHeader(\"authorization\").split(\" \")[1];",
+							"postman.setEnvironmentVariable(\"token\", token);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\": \"Anthony\",\n\t\"email\": \"test07@test.com\",\n\t\"password\": \"test1234\"\n}"
+				},
+				"url": {
+					"raw": "{{url}}/users",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET /users",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{url}}/users",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST /users/login",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "d8fe82c9-4cdd-4866-bbeb-8fa455dcafa8",
+						"exec": [
+							"var token = postman.getResponseHeader(\"authorization\").split(\" \")[1];",
+							"postman.setEnvironmentVariable(\"token\", token);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"email\": \"admin@test.com\",\n\t\"password\": \"test1234\"\n}"
+				},
+				"url": {
+					"raw": "{{url}}/users/login",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"users",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PATCH /items/:id",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer: {{token}}"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"title\": \"Updated\"\n}"
+				},
+				"url": {
+					"raw": "{{url}}/items/{{itemId}}",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"items",
+						"{{itemId}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE /items/:id",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "c76d4e6b-a610-4a5a-b14f-98a0b7e2c03a",
+						"exec": [
+							"postman.setEnvironmentVariable(\"itemId\", null);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer: {{token}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{url}}/items/{{itemId}}",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"items",
+						"{{itemId}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET /users/logout",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"postman.setEnvironmentVariable(\"token\", null);"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"disabled": true
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer: {{token}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{url}}/users/logout",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"users",
+						"logout"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

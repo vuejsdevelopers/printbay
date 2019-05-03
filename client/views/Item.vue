@@ -79,12 +79,7 @@
   </v-layout>
 </template>
 <script>
-import {
-  ROUTE_NAME_LOGIN,
-  ROUTE_NAME_INTERNAL_SERVER_ERROR
-} from "@/constants";
 import { currency } from "@/filters";
-
 export default {
   name: "Item",
   filters: { currency },

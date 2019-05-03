@@ -25,7 +25,6 @@
 </template>
 <script>
 import ProfileItem from "@components/ProfileItemSummary";
-import { ROUTE_NAME_INTERNAL_SERVER_ERROR } from "@/constants";
 export default {
   name: "Profile",
   components: { ProfileItem },
