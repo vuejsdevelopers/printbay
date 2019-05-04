@@ -15,6 +15,9 @@ import { requiredMessage } from "@/helpers";
 export default {
   name: "InputYear",
   mixins: [InputMixin],
+  props: {
+    parentValue: Number
+  },
   data: () => ({
     name: "description"
   }),

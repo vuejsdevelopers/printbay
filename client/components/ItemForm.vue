@@ -66,7 +66,10 @@ import InputArtist from "@components/InputArtist";
 import InputYear from "@components/InputYear";
 import InputImage from "@components/InputImage";
 import InputPrice from "@components/InputPrice";
-
+const item = ["title", "artist", "year", "image", "price"].reduce((obj, prop) => {
+  obj[prop] = null;
+  return obj;
+}, {});
 export default {
   name: "ItemForm",
   components: {
@@ -92,7 +95,8 @@ export default {
     imageAPIErrors: [],
     imageErrorState: false,
     priceAPIErrors: [],
-    priceErrorState: false
+    priceErrorState: false,
+    ...item
   }),
   methods: {
     inputErrorStateChange (type, state) {
