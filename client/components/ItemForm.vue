@@ -114,28 +114,27 @@ export default {
         "There has been an error with your submission. Please try again."
       );
     },
-    save () {
+    async save () {
       this.$refs.title.validate();
       this.$refs.artist.validate();
       this.$refs.year.validate();
       this.$refs.image.validate();
       this.$refs.price.validate();
-      this.$nextTick(async () => {
-        if (
-          !this.titleErrorState &&
-          !this.artistErrorState &&
-          !this.yearErrorState &&
-          !this.imageErrorState &&
-          !this.priceErrorState
-        ) {
-          try {
-            await this.sendData();
-            this.successCallback();
-          } catch (err) {
-            this.errorCallback();
-          }
+      await this.$nextTick();
+      if (
+        !this.titleErrorState &&
+        !this.artistErrorState &&
+        !this.yearErrorState &&
+        !this.imageErrorState &&
+        !this.priceErrorState
+      ) {
+        try {
+          await this.sendData();
+          this.successCallback();
+        } catch (err) {
+          this.errorCallback();
         }
-      });
+      }
     },
     setData (data) {
       data.year = data.year.toString();

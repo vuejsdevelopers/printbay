@@ -46,19 +46,18 @@ export default {
     nameStateErrors: []
   }),
   methods: {
-    submit () {
+    async submit () {
       this.$refs.name.validate();
       this.$refs.email.validate();
       this.$refs.password.validate();
-      this.$nextTick(() => {
-        if (
-          !this.emailErrorState &&
-          !this.passwordErrorState &&
-          !this.nameErrorState
-        ) {
-          // Register
-        }
-      });
+      await this.$nextTick();
+      if (
+        !this.emailErrorState &&
+        !this.passwordErrorState &&
+        !this.nameErrorState
+      ) {
+        // Register
+      }
     }
   }
 };

@@ -31,14 +31,13 @@ export default {
   name: "LoginForm",
   mixins: [AuthFormMixin],
   methods: {
-    submit () {
+    async submit () {
       this.$refs.email.validate();
       this.$refs.password.validate();
-      this.$nextTick(() => {
-        if (!this.emailErrorState && !this.passwordErrorState) {
-          // Login
-        }
-      });
+      await this.$nextTick();
+      if (!this.emailErrorState && !this.passwordErrorState) {
+        // Login
+      }
     }
   }
 };
