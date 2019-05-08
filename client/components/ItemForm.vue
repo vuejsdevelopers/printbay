@@ -66,10 +66,7 @@ import InputArtist from "@components/InputArtist";
 import InputYear from "@components/InputYear";
 import InputImage from "@components/InputImage";
 import InputPrice from "@components/InputPrice";
-const item = ["title", "artist", "year", "image", "price"].reduce((obj, prop) => {
-  obj[prop] = null;
-  return obj;
-}, {});
+const TEMP_ID = "new_item";
 export default {
   name: "ItemForm",
   components: {
@@ -80,9 +77,6 @@ export default {
     InputPrice
   },
   mixins: [validationMixin],
-  props: {
-    id: String
-  },
   data: () => ({
     alertType: null,
     alertMessage: null,
@@ -96,8 +90,17 @@ export default {
     imageErrorState: false,
     priceAPIErrors: [],
     priceErrorState: false,
-    ...item
+    title: null,
+    artist: null,
+    year: null,
+    image: null,
+    price: null
   }),
+  computed: {
+    id () {
+      return this.$route.params.id || TEMP_ID;
+    }
+  },
   methods: {
     inputErrorStateChange (type, state) {
       this[`${type}ErrorState`] = state;
@@ -105,12 +108,8 @@ export default {
     sendData () {
       //
     },
-    successCallback (res) {
-      if (!this.$route.params.id) {
-        this.$router.push(`/items/${res.data.item.id}`);
-      } else {
-        this.showAlert("success", "Item successfully updated.");
-      }
+    successCallback (id) {
+      //
     },
     errorCallback () {
       this.showAlert(
@@ -124,21 +123,22 @@ export default {
       this.$refs.year.validate();
       this.$refs.image.validate();
       this.$refs.price.validate();
-      await this.$nextTick();
-      if (
-        !this.titleErrorState &&
-        !this.artistErrorState &&
-        !this.yearErrorState &&
-        !this.imageErrorState &&
-        !this.priceErrorState
-      ) {
-        try {
-          await this.sendData();
-          this.successCallback();
-        } catch (err) {
-          this.errorCallback();
+      this.$nextTick(async () => {
+        if (
+          !this.titleErrorState &&
+          !this.artistErrorState &&
+          !this.yearErrorState &&
+          !this.imageErrorState &&
+          !this.priceErrorState
+        ) {
+          try {
+            const { id } = await this.sendData();
+            this.successCallback(id);
+          } catch (err) {
+            this.errorCallback();
+          }
         }
-      }
+      });
     },
     setData (data) {
       data.year = data.year.toString();

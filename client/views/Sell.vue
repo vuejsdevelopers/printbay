@@ -9,9 +9,7 @@
       </h1>
       <v-divider class="mt-2 mb-4" />
       <v-card>
-        <ItemForm
-          :id="$route.params.id"
-        />
+        <ItemForm />
       </v-card>
     </v-flex>
   </v-layout>
