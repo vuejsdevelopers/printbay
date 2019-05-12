@@ -4,20 +4,20 @@
     name="register"
   >
     <InputName
+      :id="id"
       ref="name"
-      v-model="name"
       :external-errors="nameAPIErrors"
       @error="inputErrorStateChange"
     />
     <InputEmail
+      :id="id"
       ref="email"
-      v-model="email"
       :external-errors="emailAPIErrors"
       @error="inputErrorStateChange"
     />
     <InputPassword
+      :id="id"
       ref="password"
-      v-model="password"
       :external-errors="passwordAPIErrors"
       @error="inputErrorStateChange"
     />
@@ -41,7 +41,6 @@ export default {
   },
   mixins: [AuthFormMixin],
   data: () => ({
-    name: "",
     nameAPIErrors: [],
     nameStateErrors: []
   }),

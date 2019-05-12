@@ -4,14 +4,14 @@
     name="login"
   >
     <InputEmail
+      :id="id"
       ref="email"
-      v-model="email"
       :external-errors="emailAPIErrors"
       @error="inputErrorStateChange"
     />
     <InputPassword
+      :id="id"
       ref="password"
-      v-model="password"
       :external-errors="passwordAPIErrors"
       @error="inputErrorStateChange"
     />

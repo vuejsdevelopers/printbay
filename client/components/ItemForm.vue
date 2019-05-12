@@ -14,36 +14,36 @@
       name="sell"
     >
       <InputTitle
+        :id="id"
         ref="title"
-        v-model="title"
         :external-errors="titleAPIErrors"
         @error="inputErrorStateChange"
         @focus="hideAlert"
       />
       <InputArtist
+        :id="id"
         ref="artist"
-        v-model="artist"
         :external-errors="artistAPIErrors"
         @error="inputErrorStateChange"
         @focus="hideAlert"
       />
       <InputYear
+        :id="id"
         ref="year"
-        v-model="year"
         :external-errors="yearAPIErrors"
         @error="inputErrorStateChange"
         @focus="hideAlert"
       />
       <InputImage
+        :id="id"
         ref="image"
-        v-model="image"
         :external-errors="imageAPIErrors"
         @error="inputErrorStateChange"
         @focus="hideAlert"
       />
       <InputPrice
+        :id="id"
         ref="price"
-        v-model.number="price"
         :external-errors="priceAPIErrors"
         @error="inputErrorStateChange"
         @focus="hideAlert"
@@ -66,7 +66,7 @@ import InputArtist from "@components/InputArtist";
 import InputYear from "@components/InputYear";
 import InputImage from "@components/InputImage";
 import InputPrice from "@components/InputPrice";
-const TEMP_ID = "new_item";
+import { TEMP_ITEM_ID } from "@/constants";
 export default {
   name: "ItemForm",
   components: {
@@ -89,16 +89,11 @@ export default {
     imageAPIErrors: [],
     imageErrorState: false,
     priceAPIErrors: [],
-    priceErrorState: false,
-    title: null,
-    artist: null,
-    year: null,
-    image: null,
-    price: null
+    priceErrorState: false
   }),
   computed: {
     id () {
-      return this.$route.params.id || TEMP_ID;
+      return this.$route.params.id || TEMP_ITEM_ID;
     }
   },
   methods: {
@@ -123,26 +118,21 @@ export default {
       this.$refs.year.validate();
       this.$refs.image.validate();
       this.$refs.price.validate();
-      this.$nextTick(async () => {
-        if (
-          !this.titleErrorState &&
-          !this.artistErrorState &&
-          !this.yearErrorState &&
-          !this.imageErrorState &&
-          !this.priceErrorState
-        ) {
-          try {
-            const { id } = await this.sendData();
-            this.successCallback(id);
-          } catch (err) {
-            this.errorCallback();
-          }
+      await this.$nextTick();
+      if (
+        !this.titleErrorState &&
+        !this.artistErrorState &&
+        !this.yearErrorState &&
+        !this.imageErrorState &&
+        !this.priceErrorState
+      ) {
+        try {
+          const { id } = await this.sendData();
+          this.successCallback(id);
+        } catch (err) {
+          this.errorCallback();
         }
-      });
-    },
-    setData (data) {
-      data.year = data.year.toString();
-      Object.assign(this, data);
+      }
     },
     showAlert (type, message) {
       this.alertType = type;

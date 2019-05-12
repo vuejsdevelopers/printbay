@@ -2,7 +2,7 @@
   <v-text-field
     v-model.trim="value"
     :error-messages="[].concat(errors, externalErrors)"
-    name="year"
+    :name="name"
     label="Year"
     @blur="validate"
     @focus="$emit('focus')"
@@ -15,11 +15,8 @@ import { requiredMessage } from "@/helpers";
 export default {
   name: "InputYear",
   mixins: [InputMixin],
-  props: {
-    parentValue: Number
-  },
   data: () => ({
-    name: "description"
+    name: "year"
   }),
   validations: {
     value: { required, numeric }

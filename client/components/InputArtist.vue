@@ -2,7 +2,7 @@
   <v-text-field
     v-model.trim="value"
     :error-messages="[].concat(errors, externalErrors)"
-    name="artist"
+    :name="name"
     label="Artist"
     @blur="validate"
     @focus="$emit('focus')"

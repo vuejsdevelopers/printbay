@@ -2,7 +2,7 @@
   <v-text-field
     v-model.trim="value"
     :error-messages="[].concat(errors, externalErrors)"
-    name="price"
+    :name="name"
     label="Price"
     type="number"
     prefix="$"
@@ -18,9 +18,6 @@ import { requiredMessage } from "@/helpers";
 export default {
   name: "InputPrice",
   mixins: [InputMixin],
-  props: {
-    parentValue: Number
-  },
   data: () => ({
     name: "price"
   }),

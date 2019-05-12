@@ -2,7 +2,7 @@
   <v-text-field
     v-model.trim="value"
     :error-messages="[].concat(errors, externalErrors)"
-    name="image"
+    :name="name"
     label="Image"
     @blur="validate"
     @focus="$emit('focus')"

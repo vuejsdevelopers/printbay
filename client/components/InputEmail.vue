@@ -2,7 +2,7 @@
   <v-text-field
     v-model.trim="value"
     :error-messages="[].concat(errors, externalErrors)"
-    name="email"
+    :name="name"
     type="email"
     label="Email"
     @blur="validate"
