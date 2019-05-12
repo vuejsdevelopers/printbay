@@ -91,7 +91,7 @@ UserSchema.statics.findByCredentials = async function (email, password) {
     } else {
       throw {
         errors: {
-          email: {
+          password: {
             message: "Incorrect password."
           }
         }
