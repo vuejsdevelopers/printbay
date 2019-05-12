@@ -49,7 +49,7 @@
                     text-xs-right
                   >
                     <div class="headline">
-                      {{ item.price * item.qty | currency }}
+                      {{ item.price * qty | currency }}
                     </div>
                     <div class="body-1">
                       ({{ item.price | currency }})
