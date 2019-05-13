@@ -1,6 +1,8 @@
 // Vuex
 export const CART_TOTAL = "CART_TOTAL";
 export const CART_COUNT = "CART_COUNT";
+export const TEMP_ITEM_ID = "item_id";
+export const TEMP_USER_ID = "user_id";
 
 // Router
 export const ROUTE_NAME_LOGIN = "login";
