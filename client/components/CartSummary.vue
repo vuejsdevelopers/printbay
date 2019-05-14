@@ -24,7 +24,6 @@
 </template>
 <script>
 import { currency } from "@/filters";
-import { CART_TOTAL } from "@/constants";
 export default {
   name: "CartSummary",
   filters: { currency },
