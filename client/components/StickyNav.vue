@@ -43,7 +43,6 @@
 </template>
 <script>
 import {
-  CART_COUNT,
   ROUTE_NAME_LOGIN,
   ROUTE_NAME_CART
 } from "@/constants";
