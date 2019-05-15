@@ -1,10 +1,12 @@
-import Vue from "vue";
-import Vuex from "vuex";
+import VuexORM from "@vuex-orm/core";
+import Item from "@/store/models/Item";
+import item from "@/store/modules/item";
 
-Vue.use(Vuex);
+const database = new VuexORM.Database();
+database.register(Item, item);
 
-export default new Vuex.Store({
-  state: {},
-  mutations: {},
-  actions: {}
-});
+const VuexORMPlugin = VuexORM.install(database);
+
+export default {
+  plugins: [ VuexORMPlugin ]
+}
