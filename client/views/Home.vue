@@ -30,13 +30,23 @@
 </template>
 <script>
 import ItemSummary from "@components/ItemSummary";
+import Item from "@/store/models/Item";
 export default {
   name: "Home",
   components: {
     ItemSummary
   },
   computed: {
-    items: () => []
+    items: () => Item.all()
+  },
+  created () {
+    Item.create({
+      data: {
+        id: "1",
+        title: "Starry Night",
+        artist: "Vincent Van Gogh"
+      }
+    });
   }
 };
 </script>
