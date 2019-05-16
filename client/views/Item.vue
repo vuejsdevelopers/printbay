@@ -89,16 +89,21 @@ export default {
       return Item.find(this.$route.params.id) || {};
     }
   },
-  methods: {
-    addToCart () {
-      //
-    }
-  },
   created () {
     if (!Item.find(this.$route.params.id)) {
       Item.$get({
         params: {
           id: this.$route.params.id
+        }
+      });
+    }
+  },
+  methods: {
+    addToCart () {
+      Item.update({
+        where: this.$route.params.id,
+        data (item) {
+          item.cart++;
         }
       });
     }

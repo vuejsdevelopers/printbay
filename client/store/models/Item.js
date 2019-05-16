@@ -10,7 +10,8 @@ export default class Item extends Model {
       artist: this.string(""),
       image: this.string(""),
       year: this.number(0),
-      price: this.number(0)
+      price: this.number(0),
+      cart: this.number(0)
     };
   }
 }

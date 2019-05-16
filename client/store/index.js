@@ -17,4 +17,3 @@ const VuexORMPlugin = VuexORM.install(database);
 export default {
   plugins: [ VuexORMPlugin ]
 };
-
