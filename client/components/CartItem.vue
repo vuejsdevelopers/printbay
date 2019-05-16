@@ -75,6 +75,7 @@
 </template>
 <script>
 import { currency } from "@/filters";
+import Item from "@/store/models/Item";
 export default {
   name: "CartItem",
   filters: { currency },
@@ -83,15 +84,32 @@ export default {
   },
   computed: {
     item () {
-      return {};
+      return Item.find(this.id);
     },
-    qty () {
-      return 0;
+    qty: {
+      get () {
+        return Item.find(this.id).cart;
+      },
+      set (val) {
+        if (val !== "0" && val !== "") {
+          Item.update({
+            where: this.id,
+            data (item) {
+              item.cart = parseInt(val);
+            }
+          });
+        }
+      }
     }
   },
   methods: {
     removeFromCart () {
-      //
+      Item.update({
+        where: this.id,
+        data: {
+          cart: 0
+        }
+      });
     }
   }
 };
