@@ -80,17 +80,27 @@
 </template>
 <script>
 import { currency } from "@/filters";
+import Item from "@/store/models/Item";
 export default {
   name: "Item",
   filters: { currency },
   computed: {
     item () {
-      return {};
+      return Item.find(this.$route.params.id) || {};
     }
   },
   methods: {
     addToCart () {
       //
+    }
+  },
+  created () {
+    if (!Item.find(this.$route.params.id)) {
+      Item.$get({
+        params: {
+          id: this.$route.params.id
+        }
+      });
     }
   }
 };
