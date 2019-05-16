@@ -44,7 +44,8 @@
 <script>
 import {
   ROUTE_NAME_LOGIN,
-  ROUTE_NAME_CART
+  ROUTE_NAME_CART,
+  CART_COUNT
 } from "@/constants";
 export default {
   name: "StickyNav",
@@ -55,7 +56,7 @@ export default {
   }),
   computed: {
     cartItems () {
-      return 0;
+      return this.$store.getters[`entities/items/${CART_COUNT}`];
     }
   }
 };
