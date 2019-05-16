@@ -1,4 +1,4 @@
-import { CART_COUNT } from "@/constants";
+import { CART_COUNT, CART_TOTAL } from "@/constants";
 
 export default {
   getters: {
@@ -6,6 +6,11 @@ export default {
       Object.entries(state.data).reduce((count, item) => {
         count += item[1].cart;
         return count;
+      }, 0),
+    CART_TOTAL: state =>
+      Object.entries(state.data).reduce((total, item) => {
+        total += item[1].price * item[1].cart;
+        return total;
       }, 0)
   }
 };

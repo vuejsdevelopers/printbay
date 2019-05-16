@@ -56,6 +56,7 @@
     "supertest": "^4.0.2",
     "vue-template-compiler": "~2.6.8",
     "vuelidate": "^0.7.4",
-    "vuetify": "^1.5.14"
+    "vuetify": "^1.5.14",
+    "vuex-persistedstate": "^2.5.4"
   }
 }

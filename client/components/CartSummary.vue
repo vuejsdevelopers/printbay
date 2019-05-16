@@ -24,12 +24,13 @@
 </template>
 <script>
 import { currency } from "@/filters";
+import { CART_TOTAL } from "@/constants";
 export default {
   name: "CartSummary",
   filters: { currency },
   computed: {
     cartTotal () {
-      return 0;
+      return this.$store.getters[`entities/items/${CART_TOTAL}`];
     }
   }
 };
