@@ -40,13 +40,8 @@ export default {
     items: () => Item.all()
   },
   created () {
-    Item.create({
-      data: {
-        id: "1",
-        title: "Starry Night",
-        artist: "Vincent Van Gogh"
-      }
-    });
+    Item.$fetch();
+    // GET http://localhost:8080/items
   }
 };
 </script>
