@@ -10,7 +10,7 @@
             xs12
             sm4
           >
-            <v-responsive
+            <v-img
               :src="item.image"
               height="225px"
             />
