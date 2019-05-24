@@ -16,7 +16,11 @@ export default {
   name: "InputPassword",
   mixins: [InputMixin],
   data: () => ({
-    name: "password"
+    name: "password",
+    model: {
+      find: () => ({}),
+      update: () => {}
+    }
   }),
   validations: {
     value: { required, minLength: minLength(6) }

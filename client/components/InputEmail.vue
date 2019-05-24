@@ -16,7 +16,11 @@ export default {
   name: "InputEmail",
   mixins: [InputMixin],
   data: () => ({
-    name: "email"
+    name: "email",
+    model: {
+      find: () => ({}),
+      update: () => {}
+    }
   }),
   validations: {
     value: {

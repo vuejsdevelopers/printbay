@@ -16,7 +16,11 @@ export default {
   name: "InputYear",
   mixins: [InputMixin],
   data: () => ({
-    name: "year"
+    name: "year",
+    model: {
+      find: () => ({}),
+      update: () => {}
+    }
   }),
   validations: {
     value: { required, numeric }

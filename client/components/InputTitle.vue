@@ -17,7 +17,11 @@ export default {
   name: "InputTitle",
   mixins: [InputMixin],
   data: () => ({
-    name: "title"
+    name: "title",
+    model: {
+      find: () => ({}),
+      update: () => {}
+    }
   }),
   validations: {
     value: { required }

@@ -19,7 +19,11 @@ export default {
   name: "InputPrice",
   mixins: [InputMixin],
   data: () => ({
-    name: "price"
+    name: "price",
+    model: {
+      find: () => ({}),
+      update: () => {}
+    }
   }),
   validations: {
     value: { required, minValue: minValue(0.01) }

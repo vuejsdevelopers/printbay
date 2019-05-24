@@ -8,11 +8,7 @@ export default {
     id: String
   },
   data: () => ({
-    errors: [],
-    model: {
-      find: () => ({}),
-      update: () => {}
-    }
+    errors: []
   }),
   computed: {
     value: {
