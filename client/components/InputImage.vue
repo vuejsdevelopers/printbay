@@ -16,7 +16,7 @@ export default {
   name: "InputImage",
   mixins: [InputMixin],
   data: () => ({
-    name: "description",
+    name: "image",
     model: {
       find: () => ({}),
       update: () => {}
