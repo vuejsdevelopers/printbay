@@ -16,7 +16,7 @@ export default {
   name: "InputArtist",
   mixins: [InputMixin],
   data: () => ({
-    name: "description",
+    name: "artist",
     model: {
       find: () => ({}),
       update: () => {}
