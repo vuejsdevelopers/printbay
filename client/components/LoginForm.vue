@@ -6,12 +6,14 @@
     <InputEmail
       :id="id"
       ref="email"
+      :model="model"
       :external-errors="emailAPIErrors"
       @error="inputErrorStateChange"
     />
     <InputPassword
       :id="id"
       ref="password"
+      :model="model"
       :external-errors="passwordAPIErrors"
       @error="inputErrorStateChange"
     />

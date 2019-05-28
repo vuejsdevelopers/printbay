@@ -16,11 +16,7 @@ export default {
   name: "InputImage",
   mixins: [InputMixin],
   data: () => ({
-    name: "image",
-    model: {
-      find: () => ({}),
-      update: () => {}
-    }
+    name: "image"
   }),
   validations: {
     value: { required, url }

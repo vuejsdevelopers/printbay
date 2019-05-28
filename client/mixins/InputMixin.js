@@ -5,7 +5,8 @@ export default {
   mixins: [validationMixin],
   props: {
     externalErrors: Array,
-    id: String
+    id: String,
+    model: Function
   },
   data: () => ({
     errors: []

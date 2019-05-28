@@ -13,7 +13,11 @@ export default {
     emailErrorState: false,
     passwordAPIErrors: [],
     passwordErrorState: false,
-    id: TEMP_USER_ID
+    id: TEMP_USER_ID,
+    model: {
+      find: () => ({}),
+      update: () => {}
+    }
   }),
   methods: {
     inputErrorStateChange (type, state) {

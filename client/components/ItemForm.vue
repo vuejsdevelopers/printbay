@@ -16,6 +16,7 @@
       <InputTitle
         :id="id"
         ref="title"
+        :model="model"
         :external-errors="titleAPIErrors"
         @error="inputErrorStateChange"
         @focus="hideAlert"
@@ -23,6 +24,7 @@
       <InputArtist
         :id="id"
         ref="artist"
+        :model="model"
         :external-errors="artistAPIErrors"
         @error="inputErrorStateChange"
         @focus="hideAlert"
@@ -30,6 +32,7 @@
       <InputYear
         :id="id"
         ref="year"
+        :model="model"
         :external-errors="yearAPIErrors"
         @error="inputErrorStateChange"
         @focus="hideAlert"
@@ -37,6 +40,7 @@
       <InputImage
         :id="id"
         ref="image"
+        :model="model"
         :external-errors="imageAPIErrors"
         @error="inputErrorStateChange"
         @focus="hideAlert"
@@ -44,6 +48,7 @@
       <InputPrice
         :id="id"
         ref="price"
+        :model="model"
         :external-errors="priceAPIErrors"
         @error="inputErrorStateChange"
         @focus="hideAlert"
@@ -89,7 +94,11 @@ export default {
     imageAPIErrors: [],
     imageErrorState: false,
     priceAPIErrors: [],
-    priceErrorState: false
+    priceErrorState: false,
+    model: {
+      find: () => ({}),
+      update: () => {}
+    }
   }),
   computed: {
     id () {
