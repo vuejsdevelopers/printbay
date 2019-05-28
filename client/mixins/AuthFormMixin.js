@@ -5,6 +5,13 @@ import Vue from "vue";
 const strategies = Vue.config.optionMergeStrategies;
 strategies.validations = strategies.methods;
 
+class Model {
+  static find () {
+    return {};
+  };
+  static update () {};
+}
+
 export default {
   components: { InputEmail, InputPassword },
   data: () => ({
@@ -13,10 +20,7 @@ export default {
     passwordAPIErrors: [],
     passwordErrorState: false,
     id: "",
-    model: {
-      find: () => ({}),
-      update: () => {}
-    }
+    model: Model
   }),
   methods: {
     inputErrorStateChange (type, state) {

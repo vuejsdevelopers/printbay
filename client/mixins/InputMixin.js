@@ -6,7 +6,7 @@ export default {
   props: {
     externalErrors: Array,
     id: String,
-    model: Object
+    model: Function
   },
   data: () => ({
     errors: []
