@@ -72,6 +72,14 @@ import InputYear from "@components/InputYear";
 import InputImage from "@components/InputImage";
 import InputPrice from "@components/InputPrice";
 import { TEMP_ITEM_ID } from "@/constants";
+
+class Model {
+  static find () {
+    return {};
+  };
+  static update () {};
+}
+
 export default {
   name: "ItemForm",
   components: {
@@ -95,10 +103,7 @@ export default {
     imageErrorState: false,
     priceAPIErrors: [],
     priceErrorState: false,
-    model: {
-      find: () => ({}),
-      update: () => {}
-    }
+    model: Model
   }),
   computed: {
     id () {
