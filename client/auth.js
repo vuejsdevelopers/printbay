@@ -14,5 +14,9 @@ export default {
   },
   refreshData: { enabled: false },
   fetchData: { url: "/users" },
-  parseUserData: data => data
+  parseUserData: data => data,
+  registerData: {
+    url: "/users",
+    redirect: { name: ROUTE_NAME_HOME }
+  }
 };

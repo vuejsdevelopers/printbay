@@ -20,6 +20,8 @@ const VuexORMPlugin = VuexORM.install(database);
 export default {
   plugins: [
     VuexORMPlugin,
-    createPersistedState()
+    createPersistedState({
+      filter: ({ payload }) => payload ? payload.entity !== "users" : true
+    })
   ]
 };

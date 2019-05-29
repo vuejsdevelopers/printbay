@@ -58,7 +58,22 @@ export default {
         !this.passwordErrorState &&
         !this.nameErrorState
       ) {
-        // Register
+        try {
+          const { email, password, name } = this.model.find(this.id);
+          const { data } = await this.$auth.register({
+            data: {
+              email,
+              password,
+              name
+            }
+          });
+          this.$auth.user(data);
+          this.model.delete(this.id);
+        } catch (err) {
+          if (err.response) {
+            this.processAPIErrors(err);
+          }
+        }
       }
     }
   }
