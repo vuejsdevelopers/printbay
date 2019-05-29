@@ -29,8 +29,16 @@ export default {
       return this.$route.params.id ? "Edit item" : "Sell new item";
     }
   },
-  created () {
-    Item.create({ data: { id: TEMP_ITEM_ID } });
+  async beforeRouteEnter (to, from, next) {
+    const { id } = to.params;
+    if (id) {
+      if (!Item.find(id)) {
+        await Item.$get({ params: { id } });
+      }
+    } else {
+      Item.create({ data: { id: TEMP_ITEM_ID } });
+    }
+    next();
   }
 };
 </script>

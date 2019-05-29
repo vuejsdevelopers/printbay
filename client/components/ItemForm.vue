@@ -111,8 +111,15 @@ export default {
     sendData () {
       const { id } = this;
       const data = Item.find(id);
-      Item.delete(id);
-      return Item.$create({ data });
+      if (id === TEMP_ITEM_ID) {
+        Item.delete(id);
+        return Item.$create({ data });
+      } else {
+        return Item.$update({
+          params: { id },
+          data
+        });
+      }
     },
     successCallback (id) {
       this.$router.push(`/items/${id}`);

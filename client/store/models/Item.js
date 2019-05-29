@@ -14,4 +14,14 @@ export default class Item extends Model {
       cart: this.number(0)
     };
   }
+
+  static methodConf = {
+    methods: {
+      $update: {
+        http: {
+          method: "patch"
+        }
+      }
+    }
+  };
 }
