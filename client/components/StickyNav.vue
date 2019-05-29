@@ -7,7 +7,15 @@
     height="50px"
     color="pink darken-2"
   >
-    <div>
+    <div v-if="$auth.check()">
+      Hi {{ $auth.user().name }}! <a
+        id="logout"
+        href=""
+        class="blue-grey--text text--darken-4"
+        @click.prevent="logOut"
+      >Logout</a>
+    </div>
+    <div v-else>
       Hi! <router-link
         id="login"
         :to="{ name: ROUTE_NAME_LOGIN }"
@@ -48,6 +56,7 @@ import {
   ROUTE_NAME_CART,
   CART_COUNT
 } from "@/constants";
+import Item from "@/store/models/Item";
 export default {
   name: "StickyNav",
   data: () => ({
@@ -58,6 +67,15 @@ export default {
   computed: {
     cartItems () {
       return this.$store.getters[`entities/items/${CART_COUNT}`];
+    }
+  },
+  methods: {
+    logOut () {
+      Item.update({
+        where: () => true,
+        data: { cart: 0 }
+      });
+      this.$auth.logout();
     }
   }
 };

@@ -19,5 +19,11 @@ export default {
     url: "/users",
     redirect: { name: ROUTE_NAME_HOME }
   },
-  rolesVar: "role"
+  rolesVar: "role",
+  logoutData: {
+    url: "/users/logout",
+    method: "GET",
+    redirect: { name: ROUTE_NAME_HOME },
+    makeRequest: true
+  }
 };
