@@ -32,27 +32,32 @@ export default new Router({
     {
       path: "/cart",
       name: ROUTE_NAME_CART,
-      component: () => import("@views/Cart")
+      component: () => import("@views/Cart"),
+      meta: { auth: ["user"] }
     },
     {
       path: "/login",
       name: ROUTE_NAME_LOGIN,
-      component: () => import("@views/Auth")
+      component: () => import("@views/Auth"),
+      meta: { auth: false }
     },
     {
       path: "/register",
       name: ROUTE_NAME_REGISTER,
-      component: () => import("@views/Auth")
+      component: () => import("@views/Auth"),
+      meta: { auth: false }
     },
     {
       path: "/sell",
       name: ROUTE_NAME_SELL,
-      component: () => import("@views/Sell")
+      component: () => import("@views/Sell"),
+      meta: { auth: ["admin"] }
     },
     {
       path: "/profile",
       name: ROUTE_NAME_PROFILE,
-      component: () => import("@views/Profile")
+      component: () => import("@views/Profile"),
+      meta: { auth: ["admin"] }
     },
     {
       path: "/403",
@@ -72,7 +77,8 @@ export default new Router({
     {
       path: "/items/:id/edit",
       name: ROUTE_NAME_EDIT,
-      component: () => import("@views/Sell")
+      component: () => import("@views/Sell"),
+      meta: { auth: ["admin"] }
     }
   ]
 });

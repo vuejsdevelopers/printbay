@@ -18,5 +18,6 @@ export default {
   registerData: {
     url: "/users",
     redirect: { name: ROUTE_NAME_HOME }
-  }
+  },
+  rolesVar: "role"
 };

@@ -59,6 +59,7 @@
                       class="pa-3"
                     >
                       <v-btn
+                        v-if="!$auth.check('admin')"
                         name="add-to-cart"
                         large
                         color="blue-grey darken-4 white--text"

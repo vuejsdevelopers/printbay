@@ -24,6 +24,7 @@
     </div>
     <v-spacer />
     <v-btn
+      v-if="!$auth.check('admin')"
       :to="{ name: ROUTE_NAME_CART }"
       icon
     >
