@@ -15,6 +15,7 @@ export default {
     value: {
       get () {
         return this.model.find(this.id)[this.name];
+        // return User.find(TEMP_USER_ID).email;
       },
       set (val) {
         this.model.update({

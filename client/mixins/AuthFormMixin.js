@@ -1,16 +1,11 @@
 import InputEmail from "@components/InputEmail";
 import InputPassword from "@components/InputPassword";
 import Vue from "vue";
+import { TEMP_USER_ID } from "@/constants";
+import User from "@/store/models/User";
 
 const strategies = Vue.config.optionMergeStrategies;
 strategies.validations = strategies.methods;
-
-class Model {
-  static find () {
-    return {};
-  };
-  static update () {};
-}
 
 export default {
   components: { InputEmail, InputPassword },
@@ -19,8 +14,8 @@ export default {
     emailErrorState: false,
     passwordAPIErrors: [],
     passwordErrorState: false,
-    id: "",
-    model: Model
+    id: TEMP_USER_ID,
+    model: User
   }),
   methods: {
     inputErrorStateChange (type, state) {

@@ -19,7 +19,7 @@ Vue.use(Vuetify);
 Vue.use(VueRouter);
 Vue.use(Vuex);
 Vue.use(VueAxios, axios);
-Vue.use(VueAuth, VueAuthOptions);
+// Vue.use(VueAuth, VueAuthOptions);
 
 new Vue({
   router,

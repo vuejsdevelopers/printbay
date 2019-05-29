@@ -34,7 +34,8 @@
 <script>
 import LoginForm from "@components/LoginForm";
 import RegisterForm from "@components/RegisterForm";
-import { ROUTE_NAME_LOGIN, ROUTE_NAME_REGISTER } from "@/constants";
+import { ROUTE_NAME_LOGIN, ROUTE_NAME_REGISTER, TEMP_USER_ID } from "@/constants";
+import User from "@/store/models/User";
 export default {
   name: "Auth",
   components: {
@@ -44,7 +45,16 @@ export default {
   data: () => ({
     ROUTE_NAME_LOGIN,
     ROUTE_NAME_REGISTER
-  })
+  }),
+  created () {
+    if (!User.find(TEMP_USER_ID)) {
+      User.create({
+        data: {
+          id: TEMP_USER_ID
+        }
+      });
+    }
+  }
 };
 </script>
 <style lang="stylus">
