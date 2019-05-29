@@ -22,5 +22,12 @@ export default {
     default:
       router.push({ name: ROUTE_NAME_INTERNAL_SERVER_ERROR });
     }
+  },
+  access_token () {
+    try {
+      return window.localStorage["default_auth_token"];
+    } catch (err) {
+      return "";
+    }
   }
 };

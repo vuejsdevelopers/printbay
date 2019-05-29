@@ -16,6 +16,9 @@
 </template>
 <script>
 import ItemForm from "@components/ItemForm";
+import Item from "@/store/models/Item";
+import { TEMP_ITEM_ID } from "@/constants";
+
 export default {
   name: "Sell",
   components: {
@@ -25,6 +28,9 @@ export default {
     title () {
       return this.$route.params.id ? "Edit item" : "Sell new item";
     }
+  },
+  created () {
+    Item.create({ data: { id: TEMP_ITEM_ID } });
   }
 };
 </script>

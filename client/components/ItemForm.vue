@@ -72,13 +72,7 @@ import InputYear from "@components/InputYear";
 import InputImage from "@components/InputImage";
 import InputPrice from "@components/InputPrice";
 import { TEMP_ITEM_ID } from "@/constants";
-
-class Model {
-  static find () {
-    return {};
-  };
-  static update () {};
-}
+import Item from "@/store/models/Item";
 
 export default {
   name: "ItemForm",
@@ -103,7 +97,7 @@ export default {
     imageErrorState: false,
     priceAPIErrors: [],
     priceErrorState: false,
-    model: Model
+    model: Item
   }),
   computed: {
     id () {
@@ -115,10 +109,13 @@ export default {
       this[`${type}ErrorState`] = state;
     },
     sendData () {
-      //
+      const { id } = this;
+      const data = Item.find(id);
+      Item.delete(id);
+      return Item.$create({ data });
     },
     successCallback (id) {
-      //
+      this.$router.push(`/items/${id}`);
     },
     errorCallback () {
       this.showAlert(
