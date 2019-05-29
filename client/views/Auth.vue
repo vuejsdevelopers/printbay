@@ -51,4 +51,7 @@ export default {
   .v-window
     overflow: hidden;
     position: relative;
+  // Fix for issue https://github.com/vuetifyjs/vuetify/issues/6962
+  .v-tabs .v-window__container
+    height: auto !important;
 </style>
