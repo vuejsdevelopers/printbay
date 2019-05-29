@@ -38,7 +38,21 @@ export default {
       this.$refs.password.validate();
       await this.$nextTick();
       if (!this.emailErrorState && !this.passwordErrorState) {
-        // Login
+        try {
+          const { email, password } = this.model.find(this.id);
+          const { data } = await this.$auth.login({
+            data: {
+              email,
+              password
+            }
+          });
+          this.$auth.user(data);
+          this.model.delete(this.id);
+        } catch (err) {
+          if (err.response) {
+            this.processAPIErrors(err);
+          }
+        }
       }
     }
   }
