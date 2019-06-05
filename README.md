@@ -1,10 +1,10 @@
 # PrintBay
 
-Code for the case-study app PrintBay from the course [Enterprise Vue](https://vuejsdevelopers.com/courses/enterprise-vue)
+Code for the case-study app PrintBay from the course [Enterprise Vue](https://vuejsdevelopers.com/courses/enterprise-vue).
 
 ## Installation
 
-It's recommended that you use this in conjunction with the [PrintBay Vagrant](https://bitbucket.org/vuejsdevelopers/printbay-vagrant) environment.
+It's recommended that you use this in conjunction with the [PrintBay Vagrant](https://bitbucket.org/enterprisevue/printbay-vagrant) environment.
 
 ## License
 
