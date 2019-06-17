@@ -8,7 +8,7 @@ import "@assets/main.styl";
 import VueRouter from "vue-router";
 import Vuex from "vuex";
 import VueAuth from "@websanova/vue-auth";
-import VueAuthOptions from "./auth";
+import VueAuthOptions from "@/auth";
 import axios from "axios";
 import VueAxios from "vue-axios";
 
