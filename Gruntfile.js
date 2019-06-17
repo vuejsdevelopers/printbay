@@ -21,8 +21,8 @@ module.exports = function (grunt) {
         tasks: ["apidoc"],
         options: {
           livereload: true
-        },
-      },
+        }
+      }
     },
     concurrent: {
       target: {

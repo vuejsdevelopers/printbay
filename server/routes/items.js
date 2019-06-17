@@ -8,6 +8,9 @@ const validateItemBody = require("../middleware/validateItemBody");
 
 router
   .route("/")
+  /**
+   * @api {get} /items Fetch all items
+   */
   .get(ItemController.fetch)
   .all(authenticate, admin)
   .all(validateItemBody)
