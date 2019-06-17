@@ -80,7 +80,10 @@ export default {
   name: "CartItem",
   filters: { currency },
   props: {
-    id: String
+    id: {
+      type: String,
+      required: true
+    }
   },
   computed: {
     item () {

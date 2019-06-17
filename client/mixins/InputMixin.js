@@ -4,9 +4,18 @@ import { EVENT_ERROR, EVENT_INPUT } from "@/constants";
 export default {
   mixins: [validationMixin],
   props: {
-    externalErrors: Array,
-    id: String,
-    model: Function
+    externalErrors: {
+      type: Array,
+      default: []
+    },
+    id: {
+      type: String,
+      required: true
+    },
+    model: {
+      type: Function,
+      required: true
+    }
   },
   data: () => ({
     errors: []

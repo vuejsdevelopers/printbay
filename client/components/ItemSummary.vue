@@ -38,7 +38,10 @@ export default {
   name: "ItemSummary",
   filters: { currency },
   props: {
-    item: Object
+    item: {
+      type: Object,
+      required: true
+    }
   },
   data: () => ({
     hovered: false,

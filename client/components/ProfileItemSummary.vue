@@ -66,7 +66,10 @@ import {
 export default {
   name: "ProfileItemSummary",
   props: {
-    item: Object
+    item: {
+      type: Object,
+      required: true
+    }
   },
   methods: {
     del () {
