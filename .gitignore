@@ -25,3 +25,4 @@ yarn-error.log*
 .env.server
 
 /apidoc/
+/styleguide/
