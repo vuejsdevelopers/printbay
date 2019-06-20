@@ -11,7 +11,9 @@
     "seed": "node ./scripts/run_seed",
     "test:e2e": "vue-cli-service test:e2e",
     "test:unit:client": "vue-cli-service test:unit",
-    "test:unit:server": "cross-env NODE_ENV=test mocha tests/unit/server --exit"
+    "test:unit:server": "cross-env NODE_ENV=test mocha tests/unit/server --exit",
+    "docs:serve:api": "grunt",
+    "docs:build:api": "grunt apidoc"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
