@@ -10,6 +10,8 @@ router
   .route("/")
   /**
    * @api {get} /items Fetch all items
+   * @apiGroup Item
+   * @apiName GetItems
    */
   .get(ItemController.fetch)
   .all(authenticate, admin)
