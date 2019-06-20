@@ -32,12 +32,34 @@ const validateItemBody = require("../middleware/validateItemBody");
  *   "price": 29.95
  * }
  */
+/**
+ * @apiDefine 400
+ * @apiError BadRequest The supplied parameters were invalid
+ */
+/**
+ * @apiDefine 401
+ * @apiError Unauthorized The supplied token was invalid
+ */
+/**
+ * @apiDefine 403
+ * @apiError Forbidden The user does not have permission for this resource
+ */
+/**
+ * @apiDefine 404
+ * @apiError NotFound The supplied id did not match an existing record
+ */
 router
   .route("/")
   /**
    * @api {get} /items Fetch all items
    * @apiGroup Item
    * @apiName GetItems
+   * @apiSuccess (200) {Object[]} items Array of item objects
+   * @apiSuccess (200) {String} items.title Title of the item
+   * @apiSuccess (200) {String} items.artist Item's artist
+   * @apiSuccess (200) {String} items.image URL of the item's image
+   * @apiSuccess (200) {String} items.year Year of the item's creation
+   * @apiSuccess (200) {String} items.price Price of the item
    */
   .get(ItemController.fetch)
   .all(authenticate, admin)
@@ -74,6 +96,10 @@ router
    * @apiUse ItemRequestBody
    * @apiPermission admin
    * @apiParam {String} id Item's id
+   * @apiUse 400
+   * @apiUse 401
+   * @apiUse 403
+   * @apiUse 404
    */
   .patch(ItemController.update);
 
