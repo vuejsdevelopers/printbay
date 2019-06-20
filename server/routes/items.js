@@ -70,6 +70,7 @@ router
    * @apiName PostItems
    * @apiUse AuthHeader
    * @apiUse ItemRequestBody
+   * @apiVersion 1.0.0
    */
   .post(ItemController.create);
 

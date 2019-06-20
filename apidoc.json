@@ -3,5 +3,9 @@
   "version": "1.0.0",
   "description": "API docs",
   "title": "PrintBay API",
-  "url": "http://localhost:8080"
+  "url": "http://localhost:8080",
+  "header": {
+    "title": "Getting started",
+    "filename": "./docs/api/header.md"
+  }
 }
