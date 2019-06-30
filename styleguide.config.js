@@ -13,5 +13,6 @@ module.exports = {
       name: "Components",
       components: "./client/components/*.vue"
     }
-  ]
+  ],
+  renderRootJsx: "./docs/styleguide/wrapper.js"
 };
