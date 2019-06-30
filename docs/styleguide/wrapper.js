@@ -18,6 +18,10 @@ Vue.prototype.$route = {
   }
 };
 
+Vue.prototype.$auth = {
+  check: () => false
+};
+
 export default function (component) {
   component.name = "PreviewContainer";
   component.data = () => data;

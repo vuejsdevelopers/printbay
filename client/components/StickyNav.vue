@@ -57,6 +57,11 @@ import {
   CART_COUNT
 } from "@/constants";
 import Item from "@/store/models/Item";
+
+/**
+ * Sticky navigation bar
+ * @version 1.0.0
+ */
 export default {
   name: "StickyNav",
   data: () => ({
@@ -80,3 +85,19 @@ export default {
   }
 };
 </script>
+<docs>
+  ### Usage example
+  #### Logged out
+  ```js
+  <StickyNav />
+  ```
+  #### Logged in
+  ```js
+  import Vue from "vue";
+  Vue.prototype.$auth = {
+    check: () => true,
+    user: () => ({ name: "George" })
+  };
+  <StickyNav />
+  ```
+</docs>
