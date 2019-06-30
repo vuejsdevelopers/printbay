@@ -74,6 +74,10 @@ import InputPrice from "@components/InputPrice";
 import { TEMP_ITEM_ID } from "@/constants";
 import Item from "@/store/models/Item";
 
+/**
+ * Form for creating or updating items
+ * @version 1.0.0
+ */
 export default {
   name: "ItemForm",
   components: {
@@ -162,3 +166,9 @@ export default {
   }
 };
 </script>
+<docs>
+  ### Usage example
+  ```js
+  <ItemForm />
+  ```
+</docs>

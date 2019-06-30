@@ -6,9 +6,17 @@ import data from "./data";
 import Vuex from "vuex";
 import storeConfig from "@/store";
 import createModels from "./createModels";
+import RouterLink from "./RouterLink";
 
 Vue.use(Vuetify);
 Vue.use(Vuex);
+Vue.component("RouterLink", RouterLink);
+
+Vue.prototype.$route = {
+  params: {
+    id: null
+  }
+};
 
 export default function (component) {
   component.name = "PreviewContainer";
