@@ -14,5 +14,17 @@ module.exports = {
       components: "./client/components/*.vue"
     }
   ],
-  renderRootJsx: "./docs/styleguide/wrapper.js"
+  renderRootJsx: "./docs/styleguide/wrapper.js",
+  require: [ "./docs/styleguide/style.css" ],
+  template: {
+    head: {
+      links: [
+        {
+          rel: "stylesheet",
+          type: "text/css",
+          href: "https://fonts.googleapis.com/css?family=Glegoo|Open+Sans:500,900|Material+Icons"
+        }
+      ]
+    }
+  }
 };
