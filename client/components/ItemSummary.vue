@@ -34,10 +34,18 @@
 <script>
 import { ROUTE_NAME_ITEM } from "@/constants";
 import { currency } from "@/filters";
+
+/**
+ * Card to display item information.
+ * @version 1.0.0
+ */
 export default {
   name: "ItemSummary",
   filters: { currency },
   props: {
+    /**
+     * Item object.
+     */
     item: {
       type: Object,
       required: true
@@ -53,3 +61,9 @@ export default {
 .item-summary > a
   text-decoration: none;
 </style>
+<docs>
+  ### Usage examples
+  ```js
+  <ItemSummary :item="item"/>
+  ```
+</docs>
