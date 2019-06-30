@@ -76,10 +76,18 @@
 <script>
 import { currency } from "@/filters";
 import Item from "@/store/models/Item";
+
+/**
+ * Cart item.
+ * @version 1.0.0
+ */
 export default {
   name: "CartItem",
   filters: { currency },
   props: {
+    /**
+     * Item id
+     */
     id: {
       type: String,
       required: true
@@ -117,3 +125,9 @@ export default {
   }
 };
 </script>
+<docs>
+  ### Usage example
+  ```html
+  <CartItem :id="id" />
+  ```
+</docs>
