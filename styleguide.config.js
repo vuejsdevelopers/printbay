@@ -10,6 +10,10 @@ module.exports = {
   },
   sections: [
     {
+      name: "Getting started",
+      content: "./docs/styleguide/header.md"
+    },
+    {
       name: "Components",
       components: "./client/components/*.vue"
     }
@@ -17,6 +21,7 @@ module.exports = {
   renderRootJsx: "./docs/styleguide/wrapper.js",
   require: [ "./docs/styleguide/style.css" ],
   template: {
+    favicon: "./public/favicon.ico",
     head: {
       links: [
         {
@@ -26,5 +31,7 @@ module.exports = {
         }
       ]
     }
-  }
+  },
+  usageMode: "expand",
+  exampleMode: "expand"
 };
