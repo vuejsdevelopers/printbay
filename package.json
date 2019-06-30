@@ -13,7 +13,9 @@
     "test:unit:client": "vue-cli-service test:unit",
     "test:unit:server": "cross-env NODE_ENV=test mocha tests/unit/server --exit",
     "docs:serve:api": "grunt",
-    "docs:build:api": "grunt apidoc"
+    "docs:build:api": "grunt apidoc",
+    "docs:serve:client": "vue-cli-service styleguidist",
+    "docs:build:client": "vue-cli-service styleguidist:build"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
