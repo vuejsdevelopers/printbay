@@ -29,6 +29,11 @@
 </template>
 <script>
 import AuthFormMixin from "@/mixins/AuthFormMixin";
+
+/**
+ * Login form.
+ * @version 1.0.0
+ */
 export default {
   name: "LoginForm",
   mixins: [AuthFormMixin],
@@ -58,3 +63,9 @@ export default {
   }
 };
 </script>
+<docs>
+  ### Usage example
+  ```js
+  <LoginForm />
+  ```
+</docs>
