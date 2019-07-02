@@ -63,9 +63,17 @@ import {
   EVENT_DELETE,
   ROUTE_NAME_INTERNAL_SERVER_ERROR
 } from "@/constants";
+
+/**
+ * Item summary for profile page including controls.
+ * @version 1.0.0
+ */
 export default {
   name: "ProfileItemSummary",
   props: {
+    /**
+     * An item entity.
+     */
     item: {
       type: Object,
       required: true
@@ -78,3 +86,11 @@ export default {
   }
 };
 </script>
+<docs>
+  ### Usage example
+  ```js
+  <ProfileItemSummary
+    :item="item"
+  />
+  ```
+</docs>

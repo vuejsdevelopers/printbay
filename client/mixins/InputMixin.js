@@ -5,24 +5,24 @@ export default {
   mixins: [validationMixin],
   props: {
     /**
-     * A reactive array of error message strings that get merged with local error messages.
+     * A reactive array of error message strings that gets merged with local error messages.
      */
     externalErrors: {
       type: Array,
       default: []
     },
     /**
-     * The id of the model instance.
-     */
-    id: {
-      type: String,
-      required: true
-    },
-    /**
      * The Vuex ORM model that the input will bind to.
      */
     model: {
       type: Function,
+      require: true
+    },
+    /**
+     * The id of the model instance.
+     */
+    id: {
+      type: String,
       required: true
     }
   },
@@ -46,10 +46,12 @@ export default {
     errors () {
       /**
        * Error event.
+       *
+       * @event error
        * @property {string} name Input name
        * @property {boolean} inError Indicates if the input is in error
        */
-      this.$emit("EVENT_ERROR", this.name, this.errors.length > 0);
+      this.$emit(EVENT_ERROR, this.name, this.errors.length > 0);
     },
     externalErrors () {
       this.$v.value.$touch();

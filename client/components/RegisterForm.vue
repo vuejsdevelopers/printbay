@@ -37,6 +37,12 @@
 <script>
 import AuthFormMixin from "@/mixins/AuthFormMixin";
 import InputName from "@components/InputName";
+import User from "@/store/models/User";
+
+/**
+ * Registration form.
+ * @version 1.0.0
+ */
 export default {
   name: "RegisterForm",
   components: {
@@ -79,3 +85,9 @@ export default {
   }
 };
 </script>
+<docs>
+  ### Usage example
+  ```js
+  <RegisterForm />
+  ```
+</docs>

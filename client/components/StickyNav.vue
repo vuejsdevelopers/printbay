@@ -59,7 +59,7 @@ import {
 import Item from "@/store/models/Item";
 
 /**
- * Sticky navigation bar
+ * Sticky navigation bar.
  * @version 1.0.0
  */
 export default {
@@ -93,6 +93,7 @@ export default {
   ```
   #### Logged in
   ```js
+  // Mock Vue Auth
   import Vue from "vue";
   Vue.prototype.$auth = {
     check: () => true,

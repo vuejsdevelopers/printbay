@@ -20,6 +20,11 @@
 </template>
 <script>
 import { ROUTE_NAME_HOME } from "@/constants";
+
+/**
+ * Fixed navigation bar.
+ * @version 1.0.0
+ */
 export default {
   name: "FixedNav",
   data: () => ({ ROUTE_NAME_HOME })
@@ -33,3 +38,9 @@ export default {
       text-decoration: none;
       font-weight: 900;
 </style>
+<docs>
+  ### Usage example
+  ```js
+  <FixedNav />
+  ```
+</docs>

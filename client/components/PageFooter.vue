@@ -61,6 +61,11 @@ import {
   ROUTE_NAME_SELL,
   ROUTE_NAME_PROFILE
 } from "@/constants";
+
+/**
+ * Footer for whole site.
+ * @version 1.0.0
+ */
 export default {
   name: "PageFooter",
   computed: {

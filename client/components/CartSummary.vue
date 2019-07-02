@@ -25,6 +25,11 @@
 <script>
 import { currency } from "@/filters";
 import { CART_TOTAL } from "@/constants";
+
+/**
+ * Shows the cart total.
+ * @version 1.0.0
+ */
 export default {
   name: "CartSummary",
   filters: { currency },
@@ -35,3 +40,9 @@ export default {
   }
 };
 </script>
+<docs>
+  ### Usage example
+  ```js
+  <CartSummary />
+  ```
+</docs>

@@ -44,7 +44,7 @@ export default {
   filters: { currency },
   props: {
     /**
-     * Item object.
+     * An item entity.
      */
     item: {
       type: Object,
@@ -62,8 +62,10 @@ export default {
   text-decoration: none;
 </style>
 <docs>
-  ### Usage examples
+  ### Usage example
   ```js
-  <ItemSummary :item="item"/>
+  <ItemSummary
+    :item="item"
+  />
   ```
 </docs>

@@ -12,6 +12,11 @@
 import { required } from "vuelidate/lib/validators";
 import InputMixin from "@/mixins/InputMixin";
 import { requiredMessage } from "@/helpers";
+
+/**
+ * Artist input for item forms.
+ * @version 1.0.0
+ */
 export default {
   name: "InputArtist",
   mixins: [InputMixin],
@@ -31,3 +36,14 @@ export default {
   }
 };
 </script>
+<docs>
+  ### Usage example
+  ```js
+  <InputArtist
+    :id="itemId"
+    :model="ItemModel"
+    :external-errors="APIErrors"
+    @error="inputErrorStateChange"
+  />
+  ```
+</docs>

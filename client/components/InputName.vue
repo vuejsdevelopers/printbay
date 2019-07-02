@@ -12,6 +12,10 @@
 import { required, minLength } from "vuelidate/lib/validators";
 import InputMixin from "@/mixins/InputMixin";
 import { minLengthMessage, requiredMessage } from "@/helpers";
+/**
+ * Name input for auth forms.
+ * @version 1.0.0
+ */
 export default {
   name: "InputName",
   mixins: [InputMixin],
@@ -36,3 +40,14 @@ export default {
   }
 };
 </script>
+<docs>
+  ### Usage example
+  ```js
+  <InputName
+    :id="itemId"
+    :model="ItemModel"
+    :external-errors="APIErrors"
+    @error="inputErrorStateChange"
+  />
+  ```
+</docs>

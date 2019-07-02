@@ -12,6 +12,11 @@
 import { required, email } from "vuelidate/lib/validators";
 import { requiredMessage } from "@/helpers";
 import InputMixin from "@/mixins/InputMixin";
+
+/**
+ * Email input for auth forms.
+ * @version 1.0.0
+ */
 export default {
   name: "InputEmail",
   mixins: [InputMixin],
@@ -37,3 +42,14 @@ export default {
   }
 };
 </script>
+<docs>
+  ### Usage example
+  ```js
+  <InputEmail
+    :id="itemId"
+    :model="ItemModel"
+    :external-errors="APIErrors"
+    @error="inputErrorStateChange"
+  />
+  ```
+</docs>

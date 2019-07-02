@@ -15,6 +15,11 @@
 import { required, minValue } from "vuelidate/lib/validators";
 import InputMixin from "@/mixins/InputMixin";
 import { requiredMessage } from "@/helpers";
+
+/**
+ * Price input for item forms.
+ * @version 1.0.0
+ */
 export default {
   name: "InputPrice",
   mixins: [InputMixin],
@@ -37,3 +42,14 @@ export default {
   }
 };
 </script>
+<docs>
+  ### Usage example
+  ```js
+  <InputPrice
+    :id="itemId"
+    :model="ItemModel"
+    :external-errors="APIErrors"
+    @error="inputErrorStateChange"
+  />
+  ```
+</docs>
