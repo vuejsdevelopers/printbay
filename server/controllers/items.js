@@ -1,4 +1,4 @@
-const Item = require("../models/Item");
+const Item = require("../models/item");
 
 exports.fetch = async (req, res) => {
   try {

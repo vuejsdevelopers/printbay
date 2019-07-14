@@ -1,7 +1,7 @@
 const expect = require("expect");
 const app = require("../../../server");
 const request = require("supertest");
-const User = require("../../../server/models/User");
+const User = require("../../../server/models/user");
 const { seedUsers, populateUsers } = require("./seed");
 const { ObjectId } = require("mongodb");
 const faker = require("faker");
