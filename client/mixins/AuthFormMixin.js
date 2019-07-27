@@ -22,9 +22,13 @@ export default {
       this[`${type}ErrorState`] = state;
     },
     processAPIErrors (err) {
-      for (const [key, value] of Object.entries(err.response.data.errors)) {
-        this[`${key}APIErrors`].push(value.message);
-        this[`${key}ErrorState`] = true;
+      if (err.response.data.errors) {
+        for (const [key, value] of Object.entries(err.response.data.errors)) {
+          this[`${key}APIErrors`].push(value.message);
+          this[`${key}ErrorState`] = true;
+        }
+      } else {
+        console.log(err);
       }
     }
   }
