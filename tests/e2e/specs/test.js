@@ -1,15 +1,19 @@
 module.exports = {
   "add item to cart": browser => {
+    const home = browser.page.home();
+    const { firstItemSummary } = home.section;
     let url;
-    browser
-      .url(process.env.VUE_DEV_SERVER_URL)
-      .waitForElementVisible(".item-summaries", 5000)
+    home
+      .navigate()
+      .waitForElementVisible("@itemSummaries", 5000);
+    firstItemSummary
       .getAttribute(
-        ".item-summaries > :first-child > a",
+        "@link",
         "href",
         result => { url = result.value; }
       )
-      .click(".item-summaries > :first-child")
+      .click("@link");
+    browser
       .waitForElementVisible(".item", 5000)
       .perform(() => browser.assert.urlEquals(url))
       .end();
