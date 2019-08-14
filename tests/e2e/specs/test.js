@@ -1,8 +1,8 @@
 module.exports = {
-  "default e2e tests": browser => {
+  "add item to cart": browser => {
     browser
       .url(process.env.VUE_DEV_SERVER_URL)
-      .waitForElementVisible("#app", 5000)
+      .click(".item-summaries > :first-child")
       .end();
   }
 };
