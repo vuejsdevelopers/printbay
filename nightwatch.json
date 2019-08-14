@@ -12,5 +12,6 @@
       }
     }
   },
-  "page_objects_path": "tests/e2e/page-objects"
+  "page_objects_path": "tests/e2e/page-objects",
+  "globals_path": "tests/e2e/globals.js"
 }

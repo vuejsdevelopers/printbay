@@ -5,9 +5,11 @@ require("dotenv").config({
   path: path.join(__dirname, "..", ".env.server")
 });
 const mongoose = require("mongoose");
-const { PORT, NODE_ENV, MONGO_DB_URI, DB_NAME, DB_NAME_TEST } = process.env;
+const { PORT, NODE_ENV, MONGO_DB_URI, DB_NAME, DB_NAME_TEST, E2E } = process.env;
 
-const dbName = NODE_ENV === "test" ? DB_NAME_TEST : DB_NAME;
+const isTest = NODE_ENV === "test" || E2E;
+
+const dbName = isTest ? DB_NAME_TEST : DB_NAME;
 mongoose.connect(`${MONGO_DB_URI}/${dbName}`, {
   useNewUrlParser: true, useCreateIndex: true
 });
@@ -23,7 +25,7 @@ if (NODE_ENV === "production") {
   app.use("/", express.static(path.join(__dirname, "..", "dist")));
 }
 
-if (NODE_ENV !== "test") {
+if (!isTest) {
   app.listen(PORT, () => {
     console.log(`Listening on port ${PORT}`);
   });
