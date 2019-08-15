@@ -46,5 +46,25 @@ module.exports = {
     browser
       .getCartQty(result => browser.assert.equal(++qty, result))
       .end();
+  },
+  "check item in cart": browser => {
+    const item = browser.page.item();
+    const cart = browser.page.cart();
+    let itemId;
+    browser
+      .register(user)
+      .selectItem(val => {
+        itemId = val.split("/").slice(-1).pop();
+      });
+    item
+      .click("@addToCart");
+    cart
+      .navigate()
+      .waitForElementPresent("@cart");
+    browser
+      .perform(() => {
+        cart.assert.attributeEquals("@firstCartItem", "data-id", itemId);
+      });
+    browser.end();
   }
 };
