@@ -16,38 +16,31 @@ module.exports = {
       process.exit(1);
     }
   },
-  "add item to cart": browser => {
+  "register user": browser => {
     const home = browser.page.home();
-    const { firstItemSummary } = home.section;
-    const register = browser.page.register();
-    const { form } = register.section;
     const site = browser.page.site();
     const { stickyNav } = site.section;
-    const item = browser.page.item();
-    let url;
-    let qty;
-    register
-      .navigate()
-      .waitForElementPresent(form.selector);
-    form
-      .$submit(user);
-    register.waitForElementNotPresent(form.selector);
     browser
+      .register(user)
       .assert.urlEquals(home.url);
     stickyNav
       .assert.containsText(stickyNav.selector, user.name);
-    home
-      .waitForElementVisible("@itemSummaries");
-    firstItemSummary
-      .getAttribute(
-        "@link",
-        "href",
-        result => { url = result.value; }
-      )
-      .click("@link");
-    item.waitForElementVisible("@item");
+    browser.end();
+  },
+  "select item from home page": browser => {
+    let url;
     browser
+      .selectItem(function (val) { url = val; })
       .perform(() => browser.assert.urlEquals(url))
+      .end();
+  },
+  "add item to cart": browser => {
+    const item = browser.page.item();
+    let qty;
+    browser
+      .register(user)
+      .selectItem();
+    browser
       .getCartQty(function (result) { qty = result; });
     item.click("@addToCart");
     browser
