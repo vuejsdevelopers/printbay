@@ -23,7 +23,9 @@ module.exports = {
     const { form } = register.section;
     const site = browser.page.site();
     const { stickyNav } = site.section;
+    const item = browser.page.item();
     let url;
+    let qty;
     register
       .navigate()
       .waitForElementPresent(form.selector);
@@ -43,9 +45,13 @@ module.exports = {
         result => { url = result.value; }
       )
       .click("@link");
+    item.waitForElementVisible("@item");
     browser
-      .waitForElementVisible(".item")
       .perform(() => browser.assert.urlEquals(url))
+      .getCartQty(function (result) { qty = result; });
+    item.click("@addToCart");
+    browser
+      .getCartQty(result => browser.assert.equal(++qty, result))
       .end();
   }
 };
