@@ -13,10 +13,26 @@ module.exports = {
   "add item to cart": browser => {
     const home = browser.page.home();
     const { firstItemSummary } = home.section;
+    const register = browser.page.register();
+    const { form } = register.section;
+    const site = browser.page.site();
+    const { stickyNav } = site.section;
     let url;
-    home
+    register
       .navigate()
-      .waitForElementVisible("@itemSummaries", 5000);
+      .waitForElementPresent(form.selector);
+    form
+      .setValue("@nameInput", "George")
+      .setValue("@emailInput", "george@test.com")
+      .setValue("@passwordInput", "test1234")
+      .click("@submitButton");
+    register.waitForElementNotPresent(form.selector);
+    browser
+      .assert.urlEquals(home.url);
+    stickyNav
+      .assert.containsText(stickyNav.selector, "George");
+    home
+      .waitForElementVisible("@itemSummaries");
     firstItemSummary
       .getAttribute(
         "@link",
@@ -25,7 +41,7 @@ module.exports = {
       )
       .click("@link");
     browser
-      .waitForElementVisible(".item", 5000)
+      .waitForElementVisible(".item")
       .perform(() => browser.assert.urlEquals(url))
       .end();
   }

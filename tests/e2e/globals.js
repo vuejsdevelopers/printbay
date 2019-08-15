@@ -16,5 +16,6 @@ module.exports = {
   after: async done => {
     server.close(done);
     process.exit();
-  }
+  },
+  waitForConditionTimeout: 10000
 };
