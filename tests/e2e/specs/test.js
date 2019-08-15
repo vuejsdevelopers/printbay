@@ -1,5 +1,11 @@
 const seed = require("../../../scripts/seed");
 
+const user = {
+  name: "George",
+  email: "george@test.com",
+  password: "test1234"
+};
+
 module.exports = {
   beforeEach: async (browser, done) => {
     try {
@@ -22,15 +28,12 @@ module.exports = {
       .navigate()
       .waitForElementPresent(form.selector);
     form
-      .setValue("@nameInput", "George")
-      .setValue("@emailInput", "george@test.com")
-      .setValue("@passwordInput", "test1234")
-      .click("@submitButton");
+      .$submit(user);
     register.waitForElementNotPresent(form.selector);
     browser
       .assert.urlEquals(home.url);
     stickyNav
-      .assert.containsText(stickyNav.selector, "George");
+      .assert.containsText(stickyNav.selector, user.name);
     home
       .waitForElementVisible("@itemSummaries");
     firstItemSummary

@@ -16,7 +16,18 @@ module.exports = {
         submitButton: {
           selector: "button[name=submit]"
         }
-      }
+      },
+      commands: [
+        {
+          $submit ({ name, email, password }) {
+            return this
+              .setValue("@nameInput", name)
+              .setValue("@emailInput", email)
+              .setValue("@passwordInput", password)
+              .click("@submitButton");
+          }
+        }
+      ]
     }
   }
 };
