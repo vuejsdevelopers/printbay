@@ -70,8 +70,15 @@ export default {
   name: "PageFooter",
   computed: {
     links () {
-      const links = [{ text: "Browse", route: ROUTE_NAME_HOME }];
-      links.push({ text: "Shopping cart", route: ROUTE_NAME_CART });
+      let links = [{ text: "Browse", route: ROUTE_NAME_HOME }];
+      if (this.$auth.check("admin")) {
+        links.push(
+          { text: "Sell new item", route: ROUTE_NAME_SELL },
+          { text: "Edit an item", route: ROUTE_NAME_PROFILE }
+        );
+      } else {
+        links.push({ text: "Shopping cart", route: ROUTE_NAME_CART });
+      }
       return links;
     }
   }

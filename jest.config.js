@@ -1,17 +1,30 @@
+const path = require("path");
+
 module.exports = {
-  moduleFileExtensions: ["js", "jsx", "json", "vue"],
-  transform: {
-    "^.+\\.vue$": "vue-jest",
-    ".+\\.(css|styl|less|sass|scss|svg|png|jpg|ttf|woff|woff2)$":
-      "jest-transform-stub",
-    "^.+\\.jsx?$": "babel-jest"
-  },
-  moduleNameMapper: {
-    "^@/(.*)$": "<rootDir>/src/$1"
-  },
-  snapshotSerializers: ["jest-serializer-vue"],
-  testMatch: [
-    "**/tests/unit/**/*.spec.(js|jsx|ts|tsx)|**/__tests__/*.(js|jsx|ts|tsx)"
+  moduleFileExtensions: [
+    "js",
+    "jsx",
+    "json",
+    "vue"
   ],
-  testURL: "http://localhost/"
+  transform: {
+    "^.+\\.vue$": "<rootDir>/node_modules/vue-jest",
+    "^.+\\.(js|jsx)$": "<rootDir>/node_modules/babel-jest",
+    ".+\\.(css|styl|less|sass|scss|svg|png|jpg|ttf|woff|woff2)$": "<rootDir>/node_modules/jest-transform-stub"
+  },
+  transformIgnorePatterns: [
+    "/node_modules/(?!vuetify).+\\.js$"
+  ],
+  moduleNameMapper: {
+    "^@/(.*)$": path.join("<rootDir>", "client/$1"),
+    "^@assets(.*)$": path.join("<rootDir>", "assets$1"),
+    "^@components(.*)$": path.join("<rootDir>", "client", "components$1"),
+    "^@views(.*)$": path.join("<rootDir>", "client", "views$1")
+  },
+  snapshotSerializers: [
+    "jest-serializer-vue"
+  ],
+  roots: [
+    "<rootDir>/tests/unit/client"
+  ]
 };
