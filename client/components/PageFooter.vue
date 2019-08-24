@@ -70,7 +70,7 @@ export default {
   name: "PageFooter",
   computed: {
     links () {
-      let links = [{ text: "Browse", route: ROUTE_NAME_HOME }];
+      const links = [{ text: "Browse", route: ROUTE_NAME_HOME }];
       if (this.$auth.check("admin")) {
         links.push(
           { text: "Sell new item", route: ROUTE_NAME_SELL },
