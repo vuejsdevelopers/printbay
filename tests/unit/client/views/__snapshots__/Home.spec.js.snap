@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Home.vue should render correctly 1`] = `
+<v-layout-stub tag="div" column="" class="[object Object]">
+  <v-layout-stub tag="div">
+    <h1>Featured Prints</h1>
+  </v-layout-stub>
+  <v-divider-stub class="mt-2 mb-4"></v-divider-stub>
+  <v-layout-stub tag="div">
+    <v-container-stub tag="div" fluid="" grid-list-lg="" class="px-0">
+      <v-layout-stub tag="div" row="" wrap="" class="item-summaries">
+        <itemsummary-stub item="[object Object]"></itemsummary-stub>
+        <itemsummary-stub item="[object Object]"></itemsummary-stub>
+      </v-layout-stub>
+    </v-container-stub>
+  </v-layout-stub>
+</v-layout-stub>
+`;
