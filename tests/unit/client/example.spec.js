@@ -1,12 +1,9 @@
-import { shallowMount } from "@vue/test-utils";
-import HelloWorld from "@/components/HelloWorld.vue";
+function sum (a, b) {
+  return a + b;
+}
 
-describe("HelloWorld.vue", () => {
-  it("renders props.msg when passed", () => {
-    const msg = "new message";
-    const wrapper = shallowMount(HelloWorld, {
-      propsData: { msg }
-    });
-    expect(wrapper.text()).toMatch(msg);
+describe("sum", () => {
+  it("should sum two numbers", () => {
+    expect(sum(1, 2)).toBe(3);
   });
 });
