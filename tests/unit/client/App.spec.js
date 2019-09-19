@@ -11,5 +11,6 @@ describe("App.vue", () => {
     const localVue = createLocalVue();
     localVue.use(VueRouter);
     const wrapper = shallowMount(App, { localVue, router });
+    expect(wrapper).toMatchSnapshot();
   });
 });
