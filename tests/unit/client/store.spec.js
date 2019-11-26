@@ -1,4 +1,4 @@
-import item from "@/store/modules/Item";
+import item from "@/store/modules/item";
 import { CART_COUNT, CART_TOTAL } from "@/constants";
 
 describe("Item module", () => {
