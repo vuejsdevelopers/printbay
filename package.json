@@ -2,9 +2,6 @@
   "name": "printbay",
   "version": "0.1.0",
   "private": true,
-  "engines": {
-    "node": "10.15.3"
-  },
   "scripts": {
     "serve:client": "vue-cli-service serve",
     "serve:server": "nodemon server -L",
