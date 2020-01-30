@@ -47,6 +47,7 @@ module.exports = {
       { code: 120 }
     ],
     "prefer-promise-reject-errors": 0,
-    "no-throw-literal": 0
+    "no-throw-literal": 0,
+    "standard/no-callback-literal": 0
   }
 };
