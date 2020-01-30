@@ -1,4 +1,4 @@
-# Module 5
+# Module 10
 
 Code for the case-study app PrintBay from the course [Enterprise Vue](https://vuejsdevelopers.com/courses/enterprise-vue)
 
