@@ -1,5 +1,5 @@
-const Item = require("../../../server/models/Item");
-const User = require("../../../server/models/User");
+const Item = require("../../../server/models/item");
+const User = require("../../../server/models/user");
 const { ObjectId } = require("mongodb");
 const faker = require("faker");
 const jwt = require("jsonwebtoken");

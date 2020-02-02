@@ -1,0 +1,41 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Item.vue should render correctly when admin 1`] = `
+<v-layout-stub tag="div" class="item [object Object]">
+  <v-flex-stub tag="div" xs12="">
+    <v-card-stub tag="div" flat="true">
+      <v-layout-stub tag="div" row="" wrap="">
+        <v-flex-stub tag="div" xs12="" sm6="" md4=""><img src="https://images.nga.gov/?service=asset&amp;action=show_preview&amp;asset=149207"></v-flex-stub>
+        <v-flex-stub tag="div" xs12="" sm6="" md8="" class="[object Object]">
+          <div class="pa-3">
+            <h1 class="mb-2">
+              Self-Portrait
+            </h1>
+            <h3 class="mb-3 pink--text text--darken-1">
+              Vincent van Gogh, 1889
+            </h3>
+          </div>
+          <v-divider-stub></v-divider-stub>
+          <v-layout-stub tag="div">
+            <v-flex-stub tag="div" xs12="" md8="" lg6="">
+              <v-responsive-stub height="150px" color="grey lighten-4">
+                <v-layout-stub tag="div" wrap="">
+                  <v-flex-stub tag="div" sm12="" md6="" class="pa-3">
+                    <div class="body-2 price">
+                      Price: <span class="price ml-1 pink--text text--darken-1">$29.95</span></div>
+                  </v-flex-stub>
+                  <v-flex-stub tag="div" sm12="" md6="" class="pa-3">
+                    <v-btn-stub color="blue-grey darken-4 white--text" activeclass="v-btn--active" to="/items/1/edit" tag="button" large="true" type="button" name="add-to-cart" class="elevation-0 ma-0">
+                      Edit Item
+                    </v-btn-stub>
+                  </v-flex-stub>
+                </v-layout-stub>
+              </v-responsive-stub>
+            </v-flex-stub>
+          </v-layout-stub>
+        </v-flex-stub>
+      </v-layout-stub>
+    </v-card-stub>
+  </v-flex-stub>
+</v-layout-stub>
+`;

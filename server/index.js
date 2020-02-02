@@ -5,9 +5,11 @@ require("dotenv").config({
   path: path.join(__dirname, "..", ".env.server")
 });
 const mongoose = require("mongoose");
-const { PORT, NODE_ENV, MONGO_DB_URI, DB_NAME, DB_NAME_TEST } = process.env;
+const { PORT, NODE_ENV, MONGO_DB_URI, DB_NAME, DB_NAME_TEST, E2E } = process.env;
 
-const dbName = NODE_ENV === "test" ? DB_NAME_TEST : DB_NAME;
+const isTest = NODE_ENV === "test" || E2E;
+
+const dbName = isTest ? DB_NAME_TEST : DB_NAME;
 mongoose.connect(`${MONGO_DB_URI}/${dbName}`, {
   useNewUrlParser: true, useCreateIndex: true
 });
@@ -20,10 +22,17 @@ app.use("/users", require("./routes/users"));
 
 app.use("/public", express.static(path.join(__dirname, "..", "public")));
 if (NODE_ENV === "production") {
-  app.use("/", express.static(path.join(__dirname, "..", "dist")));
+  const staticFiles = express.static(path.join(__dirname, "..", "dist"));
+  app.use(staticFiles);
+  app.use(require("connect-history-api-fallback")({
+    index: "/",
+    disableDotRule: true,
+    verbose: true
+  }));
+  app.use(staticFiles);
 }
 
-if (NODE_ENV !== "test") {
+if (!isTest) {
   app.listen(PORT, () => {
     console.log(`Listening on port ${PORT}`);
   });

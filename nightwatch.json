@@ -2,15 +2,17 @@
   "test_settings": {
     "chrome": {
       "desiredCapabilities": {
-        "browserName": "chrome",
-        "javascriptEnabled": true,
-        "acceptSslCerts": true,
         "chromeOptions": {
           "args": [
-            "--headless", "--no-sandbox", "--disable-gpu"
+            "--headless",
+            "--no-sandbox",
+            "--disable-gpu"
           ]
         }
       }
     }
-  }
+  },
+  "page_objects_path": "tests/e2e/page-objects",
+  "globals_path": "tests/e2e/globals.js",
+  "custom_commands_path": "tests/e2e/custom-commands"
 }

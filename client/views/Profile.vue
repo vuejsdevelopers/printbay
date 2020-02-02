@@ -25,15 +25,19 @@
 </template>
 <script>
 import ProfileItem from "@components/ProfileItemSummary";
+import Item from "@/store/models/Item";
 export default {
   name: "Profile",
   components: { ProfileItem },
   computed: {
-    items: () => []
+    items: () => Item.all()
+  },
+  created () {
+    Item.$fetch();
   },
   methods: {
     del (id) {
-      this.items = this.items.filter(item => item.id !== id);
+      Item.delete(id);
     }
   }
 };

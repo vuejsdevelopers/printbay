@@ -1,0 +1,55 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CartItem.vue should render correctly 1`] = `
+<v-flex-stub tag="div" class="cart-item">
+  <v-card-stub tag="div" class="mb-4">
+    <v-container-stub tag="div" grid-list-lg="">
+      <v-layout-stub tag="div" row="" wrap="">
+        <v-flex-stub tag="div" xs12="" md4="">
+          <v-img-stub height="225px" src="https://images.nga.gov/?service=asset&amp;action=show_preview&amp;asset=149207" position="center center" transition="fade-transition"></v-img-stub>
+        </v-flex-stub>
+        <v-flex-stub tag="div" xs12="" md8="">
+          <v-layout-stub tag="div" column="" align-end="">
+            <v-flex-stub tag="div">
+              <v-layout-stub tag="div" row="">
+                <v-flex-stub tag="div" sm12="" md7="">
+                  <div class="title body-2 grey--text text--darken-1">
+                    Self-Portrait - Vincent van Gogh
+                  </div>
+                </v-flex-stub>
+                <v-flex-stub tag="div" sm6="" md2="">
+                  <div class="v-input v-text-field v-input--is-label-active v-input--is-dirty theme--light">
+                    <div class="v-input__control">
+                      <div class="v-input__slot">
+                        <div class="v-text-field__slot"><label aria-hidden="true" class="v-label v-label--active theme--light" style="left: 0px; position: absolute;">Qty</label><input aria-label="Qty" type="number"></div>
+                      </div>
+                      <div class="v-text-field__details">
+                        <div class="v-messages theme--light">
+                          <div class="v-messages__wrapper"></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </v-flex-stub>
+                <v-flex-stub tag="div" sm6="" md3="" text-xs-right="">
+                  <div class="headline">
+                    $0.00
+                  </div>
+                  <div class="body-1">
+                    ($29.95)
+                  </div>
+                </v-flex-stub>
+              </v-layout-stub>
+            </v-flex-stub>
+            <v-flex-stub tag="div" justify-end=""><button type="button" class="elevation-0 mx-0 v-btn theme--light blue-grey darken-4 white--text">
+                <div class="v-btn__content">
+                  Remove
+                </div>
+              </button></v-flex-stub>
+          </v-layout-stub>
+        </v-flex-stub>
+      </v-layout-stub>
+    </v-container-stub>
+  </v-card-stub>
+</v-flex-stub>
+`;
