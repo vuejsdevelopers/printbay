@@ -73,7 +73,7 @@ export default {
   },
   methods: {
     del () {
-      //
+      this.$emit(EVENT_DELETE, this.item.id);
     }
   }
 };

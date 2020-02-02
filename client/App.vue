@@ -1,16 +1,14 @@
 <template>
-  <div id="app">
-    <v-app>
-      <StickyNav />
-      <FixedNav />
-      <v-content>
-        <v-container fluid>
-          <router-view :key="$route.path" />
-        </v-container>
-      </v-content>
-      <PageFooter />
-    </v-app>
-  </div>
+  <v-app>
+    <StickyNav />
+    <FixedNav />
+    <v-content>
+      <v-container fluid>
+        <router-view :key="$route.path" />
+      </v-container>
+    </v-content>
+    <PageFooter />
+  </v-app>
 </template>
 <script>
 import PageFooter from "@components/PageFooter";

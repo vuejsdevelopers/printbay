@@ -67,6 +67,12 @@ export default {
               name
             }
           });
+          await this.$auth.login({
+            data: {
+              email,
+              password
+            }
+          });
           this.$auth.user(data);
           this.model.delete(this.id);
         } catch (err) {

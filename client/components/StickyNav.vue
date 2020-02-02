@@ -42,6 +42,7 @@
       >
         <span
           v-if="cartItems"
+          id="cart-qty"
           slot="badge"
           class="text--white"
         >{{ cartItems }}</span>

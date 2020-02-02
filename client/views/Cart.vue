@@ -23,6 +23,7 @@
             v-for="item in cart"
             :id="item.id"
             :key="item.id"
+            :data-id="item.id"
           />
         </v-layout>
         <v-alert

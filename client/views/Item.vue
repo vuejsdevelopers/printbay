@@ -59,17 +59,7 @@
                       class="pa-3"
                     >
                       <v-btn
-                        v-if="!$auth.check('admin')"
-                        name="add-to-cart"
-                        large
-                        color="blue-grey darken-4 white--text"
-                        class="elevation-0 ma-0"
-                        @click="addToCart"
-                      >
-                        Add To Cart
-                      </v-btn>
-                      <v-btn
-                        v-else
+                        v-if="$auth.check('admin')"
                         name="add-to-cart"
                         large
                         color="blue-grey darken-4 white--text"
@@ -77,6 +67,16 @@
                         :to="`/items/${item.id}/edit`"
                       >
                         Edit Item
+                      </v-btn>
+                      <v-btn
+                        v-else
+                        name="add-to-cart"
+                        large
+                        color="blue-grey darken-4 white--text"
+                        class="elevation-0 ma-0"
+                        @click="addToCart"
+                      >
+                        Add To Cart
                       </v-btn>
                     </v-flex>
                   </v-layout>
@@ -92,6 +92,7 @@
 <script>
 import { currency } from "@/filters";
 import Item from "@/store/models/Item";
+import { ROUTE_NAME_LOGIN } from "@/constants";
 export default {
   name: "Item",
   filters: { currency },
@@ -111,12 +112,16 @@ export default {
   },
   methods: {
     addToCart () {
-      Item.update({
-        where: this.$route.params.id,
-        data (item) {
-          item.cart++;
-        }
-      });
+      if (this.$auth.check()) {
+        Item.update({
+          where: this.$route.params.id,
+          data (item) {
+            item.cart++;
+          }
+        });
+      } else {
+        this.$router.push({ name: ROUTE_NAME_LOGIN });
+      }
     }
   }
 };

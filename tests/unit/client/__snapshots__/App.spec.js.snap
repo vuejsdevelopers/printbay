@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App.vue should render correctly 1`] = `
+<v-app-stub id="app">
+  <stickynav-stub></stickynav-stub>
+  <fixednav-stub></fixednav-stub>
+  <v-content-stub tag="main">
+    <v-container-stub tag="div" fluid="">
+      <router-view-stub name="default"></router-view-stub>
+    </v-container-stub>
+  </v-content-stub>
+  <pagefooter-stub></pagefooter-stub>
+</v-app-stub>
+`;

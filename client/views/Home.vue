@@ -41,7 +41,6 @@ export default {
   },
   created () {
     Item.$fetch();
-    // GET http://localhost:8080/items
   }
 };
 </script>
