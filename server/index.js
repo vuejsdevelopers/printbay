@@ -22,7 +22,14 @@ app.use("/users", require("./routes/users"));
 
 app.use("/public", express.static(path.join(__dirname, "..", "public")));
 if (NODE_ENV === "production") {
-  app.use("/", express.static(path.join(__dirname, "..", "dist")));
+  const staticFiles = express.static(path.join(__dirname, "..", "dist"));
+  app.use(staticFiles);
+  app.use(require("connect-history-api-fallback")({
+    index: "/",
+    disableDotRule: true,
+    verbose: true
+  }));
+  app.use(staticFiles);
 }
 
 if (!isTest) {
