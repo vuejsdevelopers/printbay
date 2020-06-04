@@ -1,4 +1,4 @@
-# Full-Stack - Vue Module 1
+# Full-Stack Vue + Node - Module 1
 
 Code for the case-study app PrintBay
 
@@ -8,7 +8,7 @@ The code in this repo is only for students of Vue.js Developers. Don't share it,
 
 ## Setup
 
-Follow these setup steps to get your code and software in sync. For more details see the Introduction module, video 6.
+Follow these setup steps to get your code and software in sync.
 
 #### 1. Install node modules
 
