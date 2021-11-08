@@ -19,6 +19,7 @@
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.18.3",
+    "chromedriver": "^87.0.5",
     "connect-history-api-fallback": "^1.6.0",
     "dotenv": "^8.2.0",
     "express": "~4.16.4",
@@ -34,7 +35,7 @@
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~3.5.0",
-    "@vue/cli-plugin-e2e-nightwatch": "~3.5.0",
+    "@vue/cli-plugin-e2e-nightwatch": "^3.5.1",
     "@vue/cli-plugin-eslint": "~3.5.0",
     "@vue/cli-plugin-unit-jest": "~3.5.0",
     "@vue/cli-service": "~3.5.0",
