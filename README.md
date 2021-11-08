@@ -4,11 +4,11 @@ Code for the case-study app PrintBay.
 
 ## License
 
-The code in this repo is only for students of Vue.js Developers. Don't share it, put it on GitHub etc.
+The code in this repo is only for students of the [Enterprise Vue](https://vuejsdevelopers.com/courses/enterprise-vue) course.
 
 ## Setup
 
-Follow these setup steps to get your code and software in sync. 
+Follow these setup steps to get your code and software in sync.
 
 #### 1. Install node modules
 
