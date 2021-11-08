@@ -10,7 +10,7 @@ RUN groupadd -g $GID $UNAME && \
 
 RUN apt-get update && \
     DEBIAN_FRONTEND=noninteractive \
-    apt-get install -y wget xz-utils gnupg libdbusmenu-gtk3-4 libappindicator3-1 libgtk-3-0 libxss1 xdg-utils fonts-liberation libgbm1 && \
+    apt-get install -y wget xz-utils gnupg libcurl4 libdbusmenu-gtk3-4 libappindicator3-1 libgtk-3-0 libxss1 xdg-utils fonts-liberation libgbm1 && \
     cd /opt && \
     wget https://nodejs.org/dist/v10.15.3/node-v10.15.3-linux-x64.tar.xz && \
     tar xf node-v10.15.3-linux-x64.tar.xz && \
